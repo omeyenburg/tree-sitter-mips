@@ -9,75 +9,54 @@
 
 module.exports = grammar({
   name: "mips",
-
-  // The default ignores whitespace
-  // Overwrite the extras default to handle whitespace explicitly
-  //extras: $ => [],
-  conflicts: $ => [
-    [$.instruction],
-  ],
+  //extras: $ => [
+  //  /[ \t]/,
+    /// *#.*\n/,
+    /// |\t|\r/,
+    //$.comment,
+  //],
 
   rules: {
     program: $ => optional(seq(
-      optional($._statement_wrapper),
-      optional($._comment_wrapper),
+      optional($._statement),
+      //optional(/ */),
       repeat(seq(
         choice('\n', ';'),
-        optional($._statement_wrapper),
-        optional($._comment_wrapper)
+        optional($._statement),
+        //optional(/ */)
       )),
     )),
-
-    // Statement
-    _statement_wrapper: $ => seq(optional(/\s+/), $._statement),
-    //statement: $ => /[^\s#]*/,
-
-    // Comment
-    _comment_wrapper: $ => seq(repeat(" "), $.comment),
-    comment: $ => /#.*/,
 
     // Each statement can be a directive, label, instruction
     _statement: $ => choice(
       $.directive,
+      seq($.label, optional($._statement)),
       $.instruction,
-      $.macro,
-      seq($.label, /\s*/, optional($._statement)),
+      $.macro
     ),
 
     // A directive consists of a name beginning with a dot,
     // optionally followed by more arguments
     directive: $ => seq($.meta, optional(seq(/[ \t]+/, $.attributes))),
-    meta: $ => token(/[.][a-z_]+/),
+    meta: $ => /[.][a-z_]+/,
     attributes: $ => choice(
       $._number,
       $.string,
-      token(/[^\n"#0-9]+/)
+      /[^\n"#0-9]+/
     ),
 
     // Macros
     macro: $ => token(/[a-zA-Z_]+\([^#]*\)/),
 
     // Labels
-    label: $ => token(/[a-zA-Z_][a-zA-Z0-9_]*:/),
+    label: $ => /[a-zA-Z_][a-zA-Z0-9_]*:/,
 
     // Instructions
-    //instruction: $ => seq($.opcode, optional(seq(/ +/, $.operands))),
-    instruction: $ => seq($.opcode, token(/[ \t]+/), $.operands),
-
-    instruction: $ => choice(
-      seq($.opcode, repeat1(" "), $.operands), // /[ \t]+/,
-      $.opcode,
-    ),
-
+    instruction: $ => seq($.opcode, optional(seq(/[ \t]+/, $.operands))),
     //instruction: $ => seq($.opcode, optional($.operands)),
     //instruction: $ => $.opcode,
-    opcode: $ => token(/[a-z][a-z0-9.]*/),
-    operands: $ => seq($._operand), // repeat(seq(" ", $._operand))
-    //operands: $ => seq($._operand, repeat(choice(
-    //  seq(/[ \t]*,[ \t]*/, $._operand),
-    //  seq(/[ \t]+/, $._operand),
-    //))),
-    //operands: $ => $._operand,
+    opcode: $ => /[a-z][a-z0-9.]*/,
+    operands: $ => seq($._operand, repeat(seq(choice(/ *, */, / +/), $._operand))),
     //operands: $ => seq($._operand, repeat(seq(optional(","), $._operand))),
     _operand: $ => choice(
       $.register,
@@ -89,7 +68,7 @@ module.exports = grammar({
     // Match any macro variable
     // The starting symbol depends on the assembler in use
     // Examples: %value \\value
-    macro_variable: $ => token(/[%\\][0-9a-zA-Z_:$%\\]+/),
+    macro_variable: $ => /[%\\][0-9a-zA-Z_:$%\\]+/,
 
     // Match any number
     _number: $ => choice($.char, $.octal, $.decimal, $.hexadecimal, $.float),
@@ -129,5 +108,10 @@ module.exports = grammar({
     hexadecimal: $ => $._hexadecimal,
     float: $ => $._float,
     register: $ => $._register,
+
+    // Comment
+    //comment: $ => token(seq(/ */, '#', /.*/)),
+    //comment: $ => seq(/\s*#/, token.immediate(/.*/)),
+    //comment: $ => token(seq('#', /.*/)),
   }
-})
+});

@@ -2,15 +2,35 @@
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "mips",
   "rules": {
-    "source_file": {
+    "program": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_statement"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_wrapper"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_comment_wrapper"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             },
             {
               "type": "REPEAT",
@@ -35,7 +55,19 @@
                     "members": [
                       {
                         "type": "SYMBOL",
-                        "name": "_statement"
+                        "name": "_statement_wrapper"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_comment_wrapper"
                       },
                       {
                         "type": "BLANK"
@@ -52,6 +84,47 @@
         }
       ]
     },
+    "_statement_wrapper": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\\s+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement"
+        }
+      ]
+    },
+    "_comment_wrapper": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "STRING",
+            "value": " "
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        }
+      ]
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "#.*"
+    },
     "_statement": {
       "type": "CHOICE",
       "members": [
@@ -60,11 +133,23 @@
           "name": "directive"
         },
         {
+          "type": "SYMBOL",
+          "name": "instruction"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "macro"
+        },
+        {
           "type": "SEQ",
           "members": [
             {
               "type": "SYMBOL",
               "name": "label"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\s*"
             },
             {
               "type": "CHOICE",
@@ -79,14 +164,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "instruction"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "macro"
         }
       ]
     },
@@ -121,8 +198,11 @@
       ]
     },
     "meta": {
-      "type": "PATTERN",
-      "value": "[.][a-z_]+"
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[.][a-z_]+"
+      }
     },
     "attributes": {
       "type": "CHOICE",
@@ -136,8 +216,11 @@
           "name": "string"
         },
         {
-          "type": "PATTERN",
-          "value": "[^\\n\"#0-9]+"
+          "type": "TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^\\n\"#0-9]+"
+          }
         }
       ]
     },
@@ -145,46 +228,51 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[a-zA-Z_]+\\(.*\\)"
+        "value": "[a-zA-Z_]+\\([^#]*\\)"
       }
     },
     "label": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z_][a-zA-Z0-9_]*:"
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[a-zA-Z_][a-zA-Z0-9_]*:"
+      }
     },
     "instruction": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "opcode"
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "STRING",
+                "value": " "
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "operands"
+            }
+          ]
+        },
         {
           "type": "SYMBOL",
           "name": "opcode"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[ \\t]+"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "operands"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         }
       ]
     },
     "opcode": {
-      "type": "PATTERN",
-      "value": "[a-z][a-z0-9.]*"
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[a-z][a-z0-9.]*"
+      }
     },
     "operands": {
       "type": "SEQ",
@@ -192,35 +280,6 @@
         {
           "type": "SYMBOL",
           "name": "_operand"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_operand_sep"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_operand"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "_operand_sep": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": ","
-        },
-        {
-          "type": "PATTERN",
-          "value": " +"
         }
       ]
     },
@@ -246,8 +305,11 @@
       ]
     },
     "macro_variable": {
-      "type": "PATTERN",
-      "value": "[%\\\\][0-9a-zA-Z_:$%\\\\]+"
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[%\\\\][0-9a-zA-Z_:$%\\\\]+"
+      }
     },
     "_number": {
       "type": "CHOICE",
@@ -427,59 +489,19 @@
     "register": {
       "type": "SYMBOL",
       "name": "_register"
-    },
-    "line_comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "#"
-          },
-          {
-            "type": "PATTERN",
-            "value": ".*"
-          }
-        ]
-      }
-    },
-    "block_comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "/*"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
-          },
-          {
-            "type": "STRING",
-            "value": "*/"
-          }
-        ]
-      }
     }
   },
   "extras": [
     {
       "type": "PATTERN",
-      "value": "[ \\t]"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "line_comment"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "block_comment"
+      "value": "\\s"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "instruction"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],
