@@ -1,0 +1,6 @@
+==========
+[directives/error] assignment with string
+:error
+==========
+.foo bar="baz"
+---

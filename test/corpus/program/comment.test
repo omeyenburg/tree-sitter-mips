@@ -1,0 +1,133 @@
+==========
+[program/comment] simple comment
+==========
+# foo
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] simple comment without space inside
+==========
+#foo
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] C style comment
+==========
+// foo
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] C style block comment
+==========
+/* foo */
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] space before comment
+==========
+ # foo
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] tab before comment
+==========
+	# foo
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] new line after comment
+==========
+# foo
+
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] new line after C style comment
+==========
+// foo
+
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] new line after C style block comment
+==========
+/* foo */
+
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] CRLF after comment
+==========
+# foo
+
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] CRLF after C style comment
+==========
+// foo
+
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] CRLF after C style block comment
+==========
+/* foo */
+
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] literal escape sequence in comment
+==========
+# \n
+
+---
+
+(program
+  (comment))
+
+==========
+[program/comment] literal escape sequence in C style line comment
+==========
+// \n
+
+---
+
+(program
+  (comment))

@@ -1,0 +1,30 @@
+==========
+[labels/local] local label
+==========
+.L123:
+---
+
+(program
+  (local_label))
+
+==========
+[labels/local] chained local labels
+==========
+.L0:.L1:
+---
+
+(program
+  (local_label)
+  (local_label))
+
+==========
+[labels/local] local label reference
+==========
+foo .L123
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (local_label_reference))))

@@ -1,0 +1,36 @@
+{
+  "grammars": [
+    {
+      "name": "mips",
+      "camelcase": "Mips",
+      "scope": "source.mips",
+      "path": ".",
+      "file-types": null,
+      "highlights": "queries/highlights.scm",
+      "indents": "queries/indents.scm",
+      "injection-regex": "^mips$"
+    }
+  ],
+  "metadata": {
+    "version": "0.2.0",
+    "license": "MIT",
+    "description": "A syntax parser for the MIPS Instruction Set Architecture.",
+    "authors": [
+      {
+        "name": "Oskar Meyenburg",
+        "email": "omeyenburg@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/omeyenburg/tree-sitter-mips"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}

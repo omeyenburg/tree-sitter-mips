@@ -1,0 +1,256 @@
+==========
+[instructions/expressions] addition with space before operator
+==========
+add $t0, 1 +2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] subtraction with spaces around operator
+==========
+sub $t0, 5 - 3
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] multiplication with space before operator
+==========
+mul $t0, 4 *3
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] modulo with spaces around operator
+==========
+div $t0, 10 % 3
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] bitwise AND with space before operator
+==========
+and $t0, 15 &7
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (bitwise_and_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] bitwise OR with space before operator
+==========
+or $t0, 8 |4
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (bitwise_or_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] shift left with space before operator
+==========
+sll $t0, 1 <<3
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (shift_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] mixed precedence - multiplication before addition
+==========
+add $t0, 2+3*4
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))))))
+
+==========
+[instructions/expressions] left associativity - same precedence
+==========
+add $t0, 1+2+3
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (additive_operator)
+          right: (decimal))
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] left associativity - mixed operators
+==========
+mul $t0, 2*3%4
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] complex with spaces before operators
+==========
+add $t0, 5 +3 *2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))))))
+
+==========
+[instructions/expressions] symbols with space before operator
+==========
+li $t0, start +offset
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (symbol)
+        operator: (additive_operator)
+        right: (symbol)))))
+
+==========
+[instructions/expressions] binary operator with newline
+==========
+add $t0, 1
++ 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] binary operator with newline and spaces
+==========
+add $t0, 1
+   + 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[instructions/expressions] binary operator with multiple newlines
+==========
+add $t0, 1
+
+
++ 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))

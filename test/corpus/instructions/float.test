@@ -1,0 +1,179 @@
+==========
+[instructions/float] simple float
+==========
+foo 3.14
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] float with suffix
+==========
+foo 3.14f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] negative float
+==========
+foo -3.14
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] float starting with decimal point
+==========
+foo .14
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] float starting with decimal point with suffix
+==========
+foo .14f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] float ending with decimal point
+==========
+foo 3.
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] float ending with decimal point with suffix
+==========
+foo 3.f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] float without decimal point in exponential notation (lowercase e)
+==========
+foo 1e10
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] float without decimal point in exponential notation (lowercase e) with suffix
+==========
+foo 1e10f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] instruction with float in exponential notation (uppercase E)
+==========
+foo 1E-10
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] instruction with float in exponential notation (uppercase E) with suffix
+==========
+foo 1E-10f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] instruction with negative float in exponential notation
+==========
+foo -3.5e+5
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] instruction with negative float in exponential notation with suffix
+==========
+foo -3.5e+5f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] instruction with float starting with decimal point in exponential notation
+==========
+foo .5e2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))
+
+==========
+[instructions/float] instruction with float starting with decimal point in exponential notation with suffix
+==========
+foo .5e2f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (float))))

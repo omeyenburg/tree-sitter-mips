@@ -1,0 +1,112 @@
+==========
+[labels/directive] combined label and directive without space
+==========
+foo:.bar
+---
+
+(program
+  (global_label)
+  (directive
+    (control_mnemonic)))
+
+==========
+[labels/directive] combined label and directive with space
+==========
+foo: .bar
+---
+
+(program
+  (global_label)
+  (directive
+    (control_mnemonic)))
+
+==========
+[labels/directive] combined label and directive with tab
+==========
+foo:	.bar
+---
+
+(program
+  (global_label)
+  (directive
+    (control_mnemonic)))
+
+==========
+[labels/directive] label with space following control directive
+==========
+.foo
+bar :
+---
+
+(program
+  (directive
+    (control_mnemonic))
+  (global_label))
+
+==========
+[labels/directive] label with space following control directive with operand
+==========
+.foo 1
+bar :
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (decimal)))
+  (global_label))
+
+==========
+[labels/directive] label with space following string directive with operand
+==========
+.string "foo"
+bar :
+---
+
+(program
+  (directive
+    (string_mnemonic)
+    (string_operands
+      (string)))
+  (global_label))
+
+==========
+[labels/directive] numeric label with space following control directive
+==========
+.foo
+1 :
+---
+
+(program
+  (directive
+    (control_mnemonic))
+  (local_numeric_label))
+
+==========
+[labels/directive] numeric label with space following control directive with operand
+==========
+.foo 1
+1 :
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (decimal)))
+  (local_numeric_label))
+
+==========
+[labels/directive] numeric label with space following string directive with operand
+==========
+.string "foo"
+1 :
+---
+
+(program
+  (directive
+    (string_mnemonic)
+    (string_operands
+      (string)))
+  (local_numeric_label))

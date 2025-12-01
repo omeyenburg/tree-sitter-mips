@@ -1,0 +1,111 @@
+==========
+[instructions/operands] instruction with multiple space-separated arguments
+==========
+foo $t0 $t1 $t2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (register)
+      operand: (register))))
+
+==========
+[instructions/operands] instruction with multiple comma-separated arguments
+==========
+foo $t0,$t1,$t2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (register)
+      operand: (register))))
+
+==========
+[instructions/operands] instruction with symbol
+==========
+foo bar
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (symbol))))
+
+==========
+[instructions/operands] simple binary expression
+==========
+foo bar+4
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (symbol)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[instructions/operands] parenthesized expression
+==========
+foo (bar+4)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (parenthesized_expression
+        argument: (binary_expression
+          left: (symbol)
+          operator: (additive_operator)
+          right: (decimal))))))
+
+==========
+[instructions/operands] call expression
+==========
+foo(bar, baz)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (symbol)
+      operand: (symbol))))
+
+==========
+[instructions/operands] instruction with string operand
+==========
+foo "bar"
+
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (string))))
+
+==========
+[instructions/operands] instruction with string operand followed by instruction
+==========
+foo "bar"
+baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (string)))
+  (instruction
+    opcode: (opcode)))

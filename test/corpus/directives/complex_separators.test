@@ -1,0 +1,78 @@
+==========
+[directives/numeric] binary expression on same line
+==========
+.word 1 + 2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/numeric] multiple operands on same line
+==========
+.word 1 + 2, 3 - 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal))
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/numeric] multiple operands on separate lines
+==========
+.word 100
+200
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal))))
+
+==========
+[directives/control] binary expression on same line
+==========
+.set X, 10 + 5
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (symbol)
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/numeric] float directive with binary expression
+==========
+.float 1.5 + 2.5
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (float)
+        operator: (additive_operator)
+        right: (float)))))

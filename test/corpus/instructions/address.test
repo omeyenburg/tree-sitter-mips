@@ -1,0 +1,75 @@
+==========
+[instructions/address] address without offset
+==========
+foo ($s0)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        base: (register)))))
+
+==========
+[instructions/address] address with decimal offset
+==========
+foo -100($s0)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        offset: (decimal)
+        base: (register)))))
+
+==========
+[instructions/address] address with label
+==========
+foo bar($s0)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        offset: (symbol)
+        base: (register)))))
+
+==========
+[instructions/address] address with simple expression offset
+==========
+foo bar+100($s0)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        offset: (binary_expression
+          left: (symbol)
+          operator: (additive_operator)
+          right: (decimal))
+        base: (register)))))
+
+==========
+[instructions/address] address with parenthesized expression offset
+==========
+foo (bar+0x123)($s0)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        offset: (parenthesized_expression
+          argument: (binary_expression
+            left: (symbol)
+            operator: (additive_operator)
+            right: (hexadecimal)))
+        base: (register)))))

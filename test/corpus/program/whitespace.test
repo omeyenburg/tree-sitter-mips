@@ -1,0 +1,144 @@
+==========
+[program/whitespace] empty file
+==========
+---
+
+(program)
+
+==========
+[program/whitespace] empty line
+==========
+
+---
+
+(program)
+
+==========
+[program/whitespace] multiple empty lines
+==========
+
+---
+
+(program)
+
+==========
+[program/whitespace] single space
+==========
+ 
+---
+
+(program)
+
+==========
+[program/whitespace] single tab
+==========
+	
+---
+
+(program)
+
+==========
+[program/whitespace] single semicolon
+==========
+;
+---
+
+(program)
+
+==========
+[program/whitespace] space before semicolon
+==========
+ ;
+---
+
+(program)
+
+==========
+[program/whitespace] tab before semicolon
+==========
+	;
+---
+
+(program)
+
+==========
+[program/whitespace] multiple semicolons
+==========
+;;
+---
+
+(program)
+
+==========
+[program/whitespace] space-separated semicolons
+==========
+; ;
+---
+
+(program)
+
+==========
+[program/whitespace] tab-separated semicolons
+==========
+;	;
+---
+
+(program)
+
+==========
+[program/whitespace] single semicolon with trailing space
+==========
+; 
+---
+
+(program)
+
+==========
+[program/whitespace] single semicolon with trailing tab
+==========
+;	
+---
+
+(program)
+
+==========
+[program/whitespace] single CRLF
+==========
+
+---
+
+(program)
+
+==========
+[program/whitespace] CRLF after space
+==========
+ 
+---
+
+(program)
+
+==========
+[program/whitespace] CRLF after tab
+==========
+	
+---
+
+(program)
+
+==========
+[program/whitespace] multiple CRLF in one line
+==========
+
+
+---
+
+(program)
+
+==========
+[program/whitespace] simple new line after CRLF
+==========
+
+
+---
+
+(program)

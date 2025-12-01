@@ -1,0 +1,92 @@
+==========
+[labels/global] basic label
+==========
+test:
+---
+
+(program
+  (global_label))
+
+==========
+[labels/global] chained labels without space
+==========
+test:test:
+---
+
+(program
+  (global_label)
+  (global_label))
+
+==========
+[labels/global] chained labels with space
+==========
+test: test:
+---
+
+(program
+  (global_label)
+  (global_label))
+
+==========
+[labels/global] chained labels with tab
+==========
+test:	test:
+---
+
+(program
+  (global_label)
+  (global_label))
+
+==========
+[labels/global] leading space
+==========
+  test:
+---
+
+(program
+  (global_label))
+
+==========
+[labels/global] leading tab
+==========
+	test:
+---
+
+(program
+  (global_label))
+
+==========
+[labels/global] trailing space
+==========
+test:  
+---
+
+(program
+  (global_label))
+
+==========
+[labels/global] trailing tab
+==========
+test:	
+---
+
+(program
+  (global_label))
+
+==========
+[labels/global] label with semicolon
+==========
+test:;
+---
+
+(program
+  (global_label))
+
+==========
+[labels/global] space before semicolon
+==========
+test: ;
+---
+
+(program
+  (global_label))

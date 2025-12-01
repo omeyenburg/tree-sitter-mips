@@ -1,0 +1,270 @@
+==========
+[instructions/modulo] basic modulo operations
+==========
+foo 4%2
+foo 4 % 2
+foo 4% 2
+foo 4 %2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      operand: (macro_variable))))
+
+==========
+[instructions/modulo] left-associative chaining
+==========
+foo 1 % 2 % 3
+foo 10 % 3 % 2
+foo %1 % %2 % %3
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (binary_expression
+          left: (macro_variable)
+          operator: (multiplicative_operator)
+          right: (macro_variable))
+        operator: (multiplicative_operator)
+        right: (macro_variable)))))
+
+==========
+[instructions/modulo] complex chaining
+==========
+foo 100 % 20 % 5 % 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (binary_expression
+          left: (binary_expression
+            left: (decimal)
+            operator: (multiplicative_operator)
+            right: (decimal))
+          operator: (multiplicative_operator)
+          right: (decimal))
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[instructions/modulo] parentheses for grouping
+==========
+foo 10 % (5 % 2)
+foo (10 % 5) % 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (parenthesized_expression
+          argument: (binary_expression
+            left: (decimal)
+            operator: (multiplicative_operator)
+            right: (decimal))))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (parenthesized_expression
+          argument: (binary_expression
+            left: (decimal)
+            operator: (multiplicative_operator)
+            right: (decimal)))
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[instructions/modulo] precedence with other operators
+==========
+foo 10 % 3 + 2 % 1
+foo 10 * 3 % 2
+foo 10 % 3 / 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))
+        operator: (additive_operator)
+        right: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal)))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[instructions/modulo] parenthesized modulo as operand
+==========
+foo (4 % 2)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (parenthesized_expression
+        argument: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))))))
+
+==========
+[instructions/modulo] modulo with macro variables
+==========
+foo 4%%2
+foo 1 %%2
+foo %2%4
+foo %bar%4
+foo %1 % 2
+foo 1 % %2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (macro_variable))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (macro_variable))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (macro_variable)
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (macro_variable)
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (macro_variable)
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (macro_variable)))))
+
+==========
+[instructions/modulo] separate operands (NOT modulo chaining)
+==========
+foo %bar %baz
+foo %123 %456
+foo %1 %2%3
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable)))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable)))
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (binary_expression
+        left: (macro_variable)
+        operator: (multiplicative_operator)
+        right: (decimal)))))

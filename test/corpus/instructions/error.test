@@ -1,0 +1,62 @@
+==========
+[instructions/error] instruction with invalid float literal (missing exponent)
+:error
+==========
+foo 1e
+---
+
+==========
+[instructions/error] instruction with invalid float literal (malformed exponent)
+:error
+==========
+foo 1e+
+---
+
+==========
+[instructions/error] instruction without space between opcode and register
+:error
+==========
+foo$t0
+---
+
+==========
+[instructions/error] instruction opcode separated with comma from arguments
+:error
+==========
+foo,$t0
+---
+
+==========
+[instructions/error] instruction opcode separated with comma and spaces from arguments
+:error
+==========
+foo , $t0
+---
+
+==========
+[instructions/error] modulo operator without operands
+:error
+==========
+foo %
+---
+
+==========
+[instructions/error] modulo operator without first operand followed by decimal
+:error
+==========
+foo % 1
+---
+
+==========
+[instructions/error] modulo operation with decimal missing second operand
+:error
+==========
+foo 1 %
+---
+
+==========
+[instructions/error] modulo operation with macro variable missing second operand
+:error
+==========
+foo %1 %
+---

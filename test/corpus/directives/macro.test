@@ -1,0 +1,430 @@
+==========
+[directives/macro] macro definition with percent (%) prefix
+==========
+.macro foo %bar %baz
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with backslash (\) prefix
+==========
+.macro foo \bar \baz
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with dollar ($) prefix
+==========
+.macro foo \bar \baz
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with mixed prefixes
+==========
+.macro foo $\ $% \$ \% %$ $\
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with empty parentheses
+==========
+.macro foo ()
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)))
+
+==========
+[directives/macro] macro definition with parentheses without space before
+==========
+.macro foo(%bar %baz)
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with parentheses with space before
+==========
+.macro foo (%bar %baz)
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with parentheses and comma separation
+==========
+.macro foo(%bar, %baz)
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with parentheses and comment separation
+==========
+.macro foo(%bar/**/%baz)
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (comment)
+      (macro_parameter
+        name: (macro_parameter_name)))))
+
+==========
+[directives/macro] macro definition with parentheses, comma separation and comments
+==========
+.macro foo/**/(/**/%bar/**/,/**/%baz/**/)
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    (comment)
+    (comment)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (comment)
+      (comment)
+      (macro_parameter
+        name: (macro_parameter_name))
+      (comment))))
+
+==========
+[directives/macro] integer directive with macro variable
+==========
+.word %foo
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (macro_variable))))
+
+==========
+[directives/macro] float directive with macro variable
+==========
+.float %foo
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (macro_variable))))
+
+==========
+[directives/macro] string directive with macro variable
+==========
+.asciiz %foo
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (macro_variable))))
+
+==========
+[directives/macro] control directive followed by macro call with % prefix on next line
+==========
+.foo
+%bar
+---
+
+(program
+  (directive
+    (control_mnemonic))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] control directive followed by macro call with \ prefix on next line
+==========
+.foo
+\bar
+---
+
+(program
+  (directive
+    (control_mnemonic))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] control directive followed by macro call with $ prefix on next line
+==========
+.foo
+$bar
+---
+
+(program
+  (directive
+    (control_mnemonic))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] control directive with operand followed by macro call with % prefix on next line
+==========
+.foo 1
+%bar
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (decimal)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] control directive with operand followed by macro call with \ prefix on next line
+==========
+.foo 1
+\bar
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (decimal)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] control directive with operand followed by macro call with $ prefix on next line
+==========
+.foo 1
+$bar
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (decimal)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] numeric directive with operand followed by macro call with % prefix on next line
+==========
+.word 1
+%bar
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] numeric directive with operand followed by macro call with \ prefix on next line
+==========
+.word 1
+\bar
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] numeric directive with operand followed by macro call with $ prefix on next line
+==========
+.word 1
+$bar
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] string directive with operand followed by macro call with % prefix on next line
+==========
+.string "foo"
+%bar
+---
+
+(program
+  (directive
+    (string_mnemonic)
+    (string_operands
+      (string)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] string directive with operand followed by macro call with \ prefix on next line
+==========
+.string "foo"
+\bar
+---
+
+(program
+  (directive
+    (string_mnemonic)
+    (string_operands
+      (string)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] string directive with operand followed by macro call with $ prefix on next line
+==========
+.string "foo"
+$bar
+---
+
+(program
+  (directive
+    (string_mnemonic)
+    (string_operands
+      (string)))
+  (instruction
+    (macro_variable)))
+
+==========
+[directives/macro] macro definition without parameters followed by comment
+==========
+.macro foo # bar
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name))
+  (comment))
+
+==========
+[directives/macro] macro definition with parameter followed by comment
+==========
+.macro foo bar # baz
+---
+
+(program
+  (directive
+    mnemonic: (macro_mnemonic)
+    name: (macro_name)
+    parameters: (macro_parameters
+      (macro_parameter
+        name: (macro_parameter_name))
+      (comment))))
+
+==========
+[directives/macro] macro variable starting inside of a symbol
+==========
+foo bar\baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable))))
+
+==========
+[directives/macro] macro variable starting inside of a string
+==========
+.string "foo\bar\()baz"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string
+        (string_macro_variable)))))

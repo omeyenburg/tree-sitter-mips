@@ -1,0 +1,52 @@
+==========
+[test] binary operator with newline
+==========
+add $t0, 1
++ 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[test] binary operator with newline and spaces
+==========
+add $t0, 1
+   + 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[test] binary operator with multiple newlines
+==========
+add $t0, 1
+
+
++ 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register)
+      operand: (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))

@@ -1,0 +1,235 @@
+==========
+[instructions/macro] multiple macro variables with percent (%) prefic separated with space
+==========
+foo %bar %baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with percent (%) prefic separated with tab
+==========
+foo %bar	%baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with percent (%) prefic separated with comma
+==========
+foo %bar,%baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with backslash (\) prefic separated with space
+==========
+foo \bar \baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with backslash (\) prefic separated with tab
+==========
+foo \bar	\baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with backslash (\) prefic separated with comma
+==========
+foo \bar,\baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with dollar ($) prefic separated with space
+==========
+foo $bar $baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with dollar ($) prefic separated with tab
+==========
+foo $bar	$baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] multiple macro variables with dollar ($) prefic separated with comma
+==========
+foo $bar,$baz
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] mixed prefixes in instruction
+==========
+foo $\ $% \$ \% %$ $\
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (macro_variable)
+      operand: (macro_variable)
+      operand: (macro_variable)
+      operand: (macro_variable)
+      operand: (macro_variable)
+      operand: (macro_variable))))
+
+==========
+[instructions/macro] address with macro_variable as register with percent (%) prefix
+==========
+foo 4(%x)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        offset: (decimal)
+        base: (macro_variable)))))
+
+==========
+[instructions/macro] address with macro_variable as register with backslash (\) prefix
+==========
+foo 4(\x)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        offset: (decimal)
+        base: (macro_variable)))))
+
+==========
+[instructions/macro] address with macro_variable as register with dollar ($) prefix
+==========
+foo 4($x)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (address
+        offset: (decimal)
+        base: (macro_variable)))))
+
+==========
+[instructions/macro] parenthesized macro call with string
+==========
+foo("bar")
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (string))))
+
+==========
+[instructions/macro] parenthesized macro call with comment operand separator
+==========
+foo(1/**/2)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      (comment)
+      operand: (decimal))))
+
+==========
+[instructions/macro] parenthesized macro call with comma operand separator and comments
+==========
+foo/**/(/**/1/**/,/**/2/**/)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    (comment)
+    (comment)
+    operands: (operands
+      operand: (decimal)
+      (comment)
+      (comment)
+      operand: (decimal))
+    (comment)))
+
+==========
+[instructions/macro] macro variable as instruction opcode
+==========
+.foo 1 2
+%bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)
+      (decimal)))
+  (instruction
+    opcode: (macro_variable)))

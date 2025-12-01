@@ -1,0 +1,209 @@
+==========
+[directives/string] string directive using ascii mnemonic
+==========
+.ascii "foo"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string))))
+
+==========
+[directives/string] string directive using asciiz mnemonic
+==========
+.asciiz "foo"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string))))
+
+==========
+[directives/string] string directive using string mnemonic
+==========
+.string "foo"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string))))
+
+==========
+[directives/string] hash comment after string directive with space before
+==========
+.asciiz "foo" #
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)))
+  (comment))
+
+==========
+[directives/string] string containing escaped character
+==========
+.asciiz "\n"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string))))
+
+==========
+[directives/string] string containing escaped quote
+==========
+.asciiz "\""
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string))))
+
+==========
+[directives/string] string containing backslash
+==========
+.asciiz "\Foo"
+
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string
+        (string_macro_variable)))))
+
+==========
+[directives/string] multiple strings with space separator
+==========
+.string "a" "b"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)
+      (string))))
+
+==========
+[directives/string] multiple strings with comma separator
+==========
+.string "a", "b"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)
+      (string))))
+
+==========
+[directives/string] multiple strings without separator
+==========
+.string "a""b"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)
+      (string))))
+
+==========
+[directives/string] multiple strings with block comment separator
+==========
+.string "a" /* comment */ "b"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)
+      (comment)
+      (string))))
+
+==========
+[directives/string] multiple strings with block comment no space
+==========
+.string "a"/* comment */"b"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)
+      (comment)
+      (string))))
+
+==========
+[directives/string] three strings mixed separators
+==========
+.string "a" "b", "c"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)
+      (string)
+      (string))))
+
+==========
+[directives/string] string directive without operands
+==========
+.ascii
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)))
+
+==========
+[directives/string] string directive with trailing space
+==========
+.ascii 
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)))
+
+==========
+[directives/string] string directive with trailing comment
+==========
+.ascii # comment
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic))
+  (comment))
+
+==========
+[directives/string] string directive with block comment
+==========
+.ascii /* comment */
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic))
+  (comment))

@@ -1,0 +1,447 @@
+==========
+[directives/whitespace] CRLF after directive with directive in next line
+==========
+.word 1
+.foo
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)))
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] CRLF after directive with indented directive in next line
+==========
+	.word 1
+	.foo
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)))
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] CRLF after multiline directive
+==========
+.word 1 2
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/whitespace] trailing space after string directive before new line
+==========
+.asciiz "foo" 
+
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string))))
+
+==========
+[directives/whitespace] trailing tab after string directive before new line
+==========
+.asciiz "foo"	
+
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string))))
+
+==========
+[directives/whitespace] directive without operands with semicolon
+==========
+.foo;
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] space after mnemonic before semicolon
+==========
+.foo ;
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] semicolon after operands
+==========
+.word 123;
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal))))
+
+==========
+[directives/whitespace] space after operands before semicolon
+==========
+.word 123 ;
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal))))
+
+==========
+[directives/whitespace] space before mnemonic
+==========
+  .foo
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] tab before mnemonic
+==========
+	.foo
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] trailing spaces after mnemonic
+==========
+.foo  
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] trailing tab after mnemonic
+==========
+.foo	
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] comma separated arguments
+==========
+.foo bar, baz
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (symbol)
+      (symbol))))
+
+==========
+[directives/whitespace] control directive with argument followed by line with CRLF
+==========
+.foo bar
+
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (symbol))))
+
+==========
+[directives/whitespace] space before comma with decimals in control directive
+==========
+.foo 1 , 1
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)
+      (decimal))))
+
+==========
+[directives/whitespace] space before comma with decimals
+==========
+.word 1 , 1
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal))))
+
+==========
+[directives/whitespace] tab before comma with floats
+==========
+.float 1.0 , 1.0
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (float)
+      (float))))
+
+==========
+[directives/whitespace] tab before comma with symbols
+==========
+.foo bar	, baz
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (symbol)
+      (symbol))))
+
+==========
+[directives/whitespace] tab before comma with decimals
+==========
+.word 1	, 1
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal))))
+
+==========
+[directives/whitespace] tab before comma with floats
+==========
+.float 1.0	, 1.0
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (float)
+      (float))))
+
+==========
+[directives/whitespace] control directive with new line after comma between operands
+==========
+.foo 1 ,
+     1
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)
+      (decimal))))
+
+==========
+[directives/whitespace] numeric directive with new line after comma between operands
+==========
+.word 1 ,
+      1
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal))))
+
+==========
+[directives/whitespace] string directive with new line after comma between operands
+==========
+.ascii "foo" ,
+       "bar"
+---
+
+(program
+  (directive
+    mnemonic: (string_mnemonic)
+    operands: (string_operands
+      (string)
+      (string))))
+
+==========
+[directives/whitespace] CRLF after directive with directive in next line
+==========
+.word 1
+.foo
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)))
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] CRLF after directive with indented directive in next line
+==========
+.word 1
+.foo
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)))
+  (directive
+    mnemonic: (control_mnemonic)))
+
+==========
+[directives/whitespace] CRLF after multiline directive
+==========
+.word 1 2
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/whitespace] directive followed by label starting with underscore
+==========
+.section .text
+_label:
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (symbol)))
+  (global_label))
+
+==========
+[directives/whitespace] directive followed by numeric label
+==========
+.byte 1
+21:
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (global_numeric_label))
+
+==========
+[directives/whitespace] directive followed by another directive
+==========
+.word 1
+.section .data
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (symbol))))
+
+==========
+[directives/whitespace] directive followed by instruction
+==========
+.byte 1
+nop
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (instruction
+    (opcode)))
+
+==========
+[directives/whitespace] directive followed by label
+==========
+.byte 1
+main:
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (global_label))
+
+==========
+[directives/whitespace] directive followed by directive with blank line
+==========
+.word 1
+
+.foo
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (directive
+    (control_mnemonic)))
+
+==========
+[directives/whitespace] numeric directive mnemonic followed by space
+==========
+.word 
+---
+
+(program
+  (directive
+    (numeric_mnemonic)))

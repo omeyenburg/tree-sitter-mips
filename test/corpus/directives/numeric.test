@@ -1,0 +1,325 @@
+==========
+[directives/numeric] integer directive with decimal
+==========
+.word 123
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal))))
+
+==========
+[directives/numeric] integer directive with octal
+==========
+.word 012
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (octal))))
+
+==========
+[directives/numeric] integer directive with hexadecimal
+==========
+.word 0x01abCD
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (hexadecimal))))
+
+==========
+[directives/numeric] integer directive with char
+==========
+.word 'a'
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (char))))
+
+==========
+[directives/numeric] integer directive with multiple space-separated decimals
+==========
+.word 1 2 3
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] directive with multiple comma-separated decimals
+==========
+.word 1, 2, 3
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] directive with multiple decimals and trailing space
+==========
+.word 1 2 3 
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] directive with multiple decimals and trailing tab
+==========
+.word 1 2 3	
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] directive with integer values over multiple lines
+==========
+.word 1 2
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] integer directive over multiple lines with trailing spaces
+==========
+.word 1 2 
+      3 4 
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] integer directive over multiple lines with trailing tabs
+==========
+.word 1 2	
+      3 4	
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] float directive with single value
+==========
+.float 3.14
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (float))))
+
+==========
+[directives/numeric] float directive with decimal value
+==========
+.float 1
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal))))
+
+==========
+[directives/numeric] float directive with char value
+==========
+.float 'a'
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (char))))
+
+==========
+[directives/numeric] float directive with multiple values
+==========
+.float 3.14 2.71
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (float)
+      (float))))
+
+==========
+[directives/numeric] float directive over multiple lines
+==========
+.float 3.14
+       2.71
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (float)
+      (float))))
+
+==========
+[directives/numeric] float directive over multiple lines with trailing spaces
+==========
+.float 3.14 
+       2.71 
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (float)
+      (float))))
+
+==========
+[directives/numeric] float directive over multiple lines with trailing tabs
+==========
+.float 3.14	
+       2.71	
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (float)
+      (float))))
+
+==========
+[directives/numeric] directive followed by float (continuation)
+==========
+.float 1.0
+.5
+---
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (float)
+      (float))))
+
+==========
+[directives/numeric] directive followed by number (continuation)
+==========
+.byte 1
+2
+---
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)
+      (decimal))))
+
+==========
+[directives/numeric] block comment between operands
+==========
+.word 1/* foo */2
+---
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)
+      (comment)
+      (decimal))))
+
+==========
+[directives/numeric] block comment and space between mnemonic and operand
+==========
+.word/* foo */ 2
+---
+(program
+  (directive
+    (numeric_mnemonic)
+    (comment)
+    (numeric_operands
+      (decimal))))
+
+==========
+[directives/numeric] hash comment after operand on line end between directives
+==========
+.word 1 # foo
+.word 2 # bar
+---
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (comment)
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal)))
+  (comment))
+
+==========
+[directives/numeric] hash comment after operand followed by 2 new lines
+==========
+.foo 2 # bar
+
+
+---
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (decimal)))
+  (comment))

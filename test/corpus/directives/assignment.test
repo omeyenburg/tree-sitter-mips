@@ -1,0 +1,78 @@
+==========
+[directives/assignment] assignment with decimal
+==========
+.foo bar=123
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (decimal)))))
+
+==========
+[directives/assignment] assignment with char
+==========
+.foo bar='a'
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (char)))))
+
+==========
+[directives/assignment] multiple assignments
+==========
+.foo bar=1 baz=2
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (decimal))
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (decimal)))))
+
+==========
+[directives/assignment] assignment with spaces around equals
+==========
+.foo bar = 1
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (decimal)))))
+
+==========
+[directives/assignment] assignment with tabs around equals
+==========
+.foo bar	=	1
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (decimal)))))

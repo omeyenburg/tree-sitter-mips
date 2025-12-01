@@ -1,0 +1,677 @@
+==========
+[directives/comment] comment on new line after numeric directive
+==========
+.word 1 2
+# bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment on new line after control directive
+==========
+.foo 1 2
+# bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment on new line after empty line after numeric directive
+==========
+.word 1 2
+
+# bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment on new line after empty line after control directive
+==========
+.foo 1 2
+
+# bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style comment on new line after numeric directive
+==========
+.word 1 2
+// bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C-style comment on new line after empty line after numeric directive
+==========
+.word 1 2
+
+// bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment on new line after float directive
+==========
+.float 1.2 2.3
+# bar
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (float)
+      (float)))
+  (comment))
+
+==========
+[directives/comment] C style comment on new line after float directive
+==========
+.float 1.2 2.3
+// bar
+---
+
+(program
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (float)
+      (float)))
+  (comment))
+
+==========
+[directives/comment] inline comment following directive without arguments
+==========
+.foo # bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic))
+  (comment))
+
+==========
+[directives/comment] inline C style comment following directive without arguments
+==========
+.foo // bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic))
+  (comment))
+
+==========
+[directives/comment] inline C style block comment following directive without arguments
+==========
+.foo /* bar */
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic))
+  (comment))
+
+==========
+[directives/comment] inline comment following directive with single argument
+==========
+.foo 4 # bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] inline C style comment following directive with single argument
+==========
+.foo 4 // bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] inline C style block comment following directive with single argument
+==========
+.foo 4 /* bar */
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] inline comment following directive with multiple arguments
+==========
+.word 1, 2 # bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment in multiline directive
+==========
+.word 1 2# bar
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] comment in multiline directive with space before
+==========
+.word 1 2 # bar
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] comment in multiline directive with tab before
+==========
+.word 1 2	# bar
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] comment after multiline directive
+==========
+.word 1 2
+      3 4# bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment after multiline directive with space before
+==========
+.word 1 2
+      3 4 # bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment after multiline directive with tab before
+==========
+.word 1 2
+      3 4	# bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] comment on new line after multiline directive
+==========
+.word 1 2
+      3 4
+# bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style comment in multiline directive
+==========
+.word 1 2// bar
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] C style comment in multiline directive with space before
+==========
+.word 1 2 // bar
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] C style comment in multiline directive with tab before
+==========
+.word 1 2	// bar
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] C style comment after multiline directive
+==========
+.word 1 2
+      3 4// bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style comment after multiline directive with space before
+==========
+.word 1 2
+      3 4 // bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style comment after multiline directive with tab before
+==========
+.word 1 2
+      3 4	// bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style comment on new line after multiline directive
+==========
+.word 1 2
+      3 4
+// bar
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style block comment in multiline directive
+==========
+.word 1 2/* bar */
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] C style block comment in multiline directive with space before
+==========
+.word 1 2 /* bar */
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] C style block comment in multiline directive with tab before
+==========
+.word 1 2	/* bar */
+      3 4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (comment)
+      (decimal)
+      (decimal))))
+
+==========
+[directives/comment] C style block comment after multiline directive
+==========
+.word 1 2
+      3 4/* bar */
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style block comment after multiline directive with space before
+==========
+.word 1 2
+      3 4 /* bar */
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style block comment after multiline directive with tab before
+==========
+.word 1 2
+      3 4	/* bar */
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+==========
+[directives/comment] C style block comment on new line after multiline directive
+==========
+.word 1 2
+      3 4
+/* bar */
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (comment))
+
+
+==========
+[directives/comment] inline C style block comment before comma
+==========
+.word 1 /* bar */, 2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (comment)
+      (decimal))))
+
+==========
+[directives/comment] second operand on new line after C-style block comment on new line
+==========
+.word 1
+/* bar */
+2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (comment)
+      (decimal))))
+
+==========
+[directives/comment] second operand directly after C-style block comment on new line
+==========
+.word 1
+/* bar */2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (comment)
+      (decimal))))
+
+==========
+[directives/comment] second operand separated by space from C-style block comment on new line
+==========
+.word 1
+/* bar */ 2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (decimal)
+      (comment)
+      (decimal))))
+
+==========
+[directives/comment] directive with comment followed by label
+==========
+.foo bar # com
+baz:
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (symbol)))
+  (comment)
+  (global_label))
+
+==========
+[directives/comment] two comments on line between two operands
+==========
+.foo 1
+/* bar */ /* baz */
+2
+---
+
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (decimal)
+      (comment)
+      (decimal))))
+
+==========
+[directives/comment] hash comment after empty line after directive with operands and followed by statement
+==========
+.foo bar
+
+# comment
+.baz
+---
+(program
+  (directive
+    (control_mnemonic)
+    (control_operands
+      (symbol)))
+  (comment)
+  (directive
+    (control_mnemonic)))

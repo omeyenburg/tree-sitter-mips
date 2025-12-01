@@ -1,0 +1,98 @@
+==========
+[directives/control] basic control directive
+==========
+.text
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)))
+
+
+==========
+[directives/control] control statement with argument followed by underscore prefixed label
+==========
+.foo bar
+_baz:
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (symbol)))
+  (global_label))
+
+==========
+[directives/control] control statement with argument followed by numeric label
+==========
+.foo bar
+1:
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (symbol)))
+  (local_numeric_label))
+
+==========
+[directives/control] operands separated by block comment
+==========
+.foo 1/* bar */1
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (decimal)
+      (comment)
+      (decimal))))
+
+==========
+[directives/control] mnemonic directly followed by comment
+==========
+.foo# bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic))
+  (comment))
+
+==========
+[directives/control] mnemonic directly followed by C-style block comment
+==========
+.foo/* bar */
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    (comment)))
+
+==========
+[directives/control] elf type tag operand
+==========
+.foo @bar
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (elf_type_tag))))
+
+==========
+[directives/control] option flag operand
+==========
+.foo +a
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (option_flag))))

@@ -1,0 +1,132 @@
+==========
+[instructions/integer] instruction with decimal value
+==========
+foo 100
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal))))
+
+==========
+[instructions/integer] instruction with signed integer value
+==========
+foo -100
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal))))
+
+==========
+[instructions/integer] instruction with octal value
+==========
+foo 012
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (octal))))
+
+==========
+[instructions/integer] instruction with decimal value with leading zero
+==========
+foo 089
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal))))
+
+==========
+[instructions/integer] instruction with hexadecimal value
+==========
+foo 0x0314
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (hexadecimal))))
+
+==========
+[instructions/integer] instruction with binary value
+==========
+foo 0b11
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (binary))))
+
+==========
+[instructions/integer] instruction with signed hexadecimal value
+==========
+foo -0x0123456789ABCDEFabcdef
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (hexadecimal))))
+
+==========
+[instructions/integer] instruction with char value
+==========
+foo 'A'
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (char))))
+
+==========
+[instructions/integer] instruction with escaped symbol
+==========
+foo '\n'
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (char))))
+
+==========
+[instructions/integer] instruction with escaped single quote
+==========
+foo '\''
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (char))))
+
+==========
+[instructions/integer] negative number as separate operand
+==========
+foo 1 -1
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      operand: (decimal))))

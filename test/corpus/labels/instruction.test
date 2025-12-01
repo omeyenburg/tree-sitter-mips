@@ -1,0 +1,32 @@
+==========
+[labels/instruction] combined label and instruction without space
+==========
+foo:bar
+---
+
+(program
+  (global_label)
+  (instruction
+    opcode: (opcode)))
+
+==========
+[labels/instruction] combined label and instruction with space
+==========
+foo: bar
+---
+
+(program
+  (global_label)
+  (instruction
+    opcode: (opcode)))
+
+==========
+[labels/instruction] combined label and instruction with tab
+==========
+foo:	bar
+---
+
+(program
+  (global_label)
+  (instruction
+    opcode: (opcode)))

@@ -1,0 +1,238 @@
+==========
+[instructions/whitespace] comma-separated operands
+==========
+foo 1,2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      operand: (decimal))))
+
+==========
+[instructions/whitespace] space-separated operands
+==========
+foo 1 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      operand: (decimal))))
+
+==========
+[instructions/whitespace] tab-separated operands
+==========
+foo	1	2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      operand: (decimal))))
+
+==========
+[instructions/whitespace] comma separated operands with spaces
+==========
+foo 1 , 2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      operand: (decimal))))
+
+==========
+[instructions/whitespace] comma separated operands with tabs
+==========
+foo	1	,	2
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (decimal)
+      operand: (decimal))))
+
+==========
+[instructions/whitespace] space before opcode
+==========
+  foo
+---
+
+(program
+  (instruction
+    opcode: (opcode)))
+
+==========
+[instructions/whitespace] tab before opcode
+==========
+	foo
+---
+
+(program
+  (instruction
+    opcode: (opcode)))
+
+=========
+[instructions/whitespace] trailing spaces after opcode
+=========
+foo  
+---
+
+(program
+  (instruction
+    opcode: (opcode)))
+
+==========
+[instructions/whitespace] trailing tab after opcode
+==========
+foo	
+---
+
+(program
+  (instruction
+    opcode: (opcode)))
+
+==========
+[instructions/whitespace] trailing spaces after operands
+==========
+foo $t0  
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register))))
+
+==========
+[instructions/whitespace] trailing tab after operands
+==========
+foo $t0	
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register))))
+
+==========
+[instructions/whitespace] instruction without operands with semicolon
+==========
+foo;
+---
+
+(program
+  (instruction
+    opcode: (opcode)))
+
+==========
+[instructions/whitespace] instruction without operands with space before semicolon
+==========
+foo ;
+---
+
+(program
+  (instruction
+    opcode: (opcode)))
+
+==========
+[instructions/whitespace] instruction with operands with semicolon
+==========
+foo $t0;
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register))))
+
+==========
+[instructions/whitespace] instruction with operands with space before semicolon
+==========
+foo $t0 ;
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (register))))
+
+==========
+[instructions/whitespace] call expression with space before
+==========
+foo (bar, baz)
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (symbol)
+      operand: (symbol))))
+
+==========
+[instructions/whitespace] call expression with spaces around operands
+==========
+foo ( bar, baz )
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (symbol)
+      operand: (symbol))))
+
+==========
+[instructions/whitespace] instruction followed by indented label
+==========
+foo
+ bar:
+---
+
+(program
+  (instruction
+    (opcode))
+  (global_label))
+
+==========
+[instructions/whitespace] instruction followed by indented instruction
+==========
+foo
+ bar
+---
+
+(program
+  (instruction
+    (opcode))
+  (instruction
+    (opcode)))
+
+==========
+[instructions/whitespace] instruction followed by indented directive
+==========
+foo
+ .word 1
+---
+
+(program
+  (instruction
+    (opcode))
+  (directive
+    (numeric_mnemonic)
+    (numeric_operands
+      (decimal))))

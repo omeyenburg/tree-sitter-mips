@@ -1,0 +1,41 @@
+==========
+[labels/numeric] global numeric label
+==========
+100:
+---
+
+(program
+  (global_numeric_label))
+
+==========
+[labels/numeric] local numeric label
+==========
+0:
+---
+
+(program
+  (local_numeric_label))
+
+==========
+[labels/numeric] local numeric label forward reference
+==========
+foo 1f
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (local_numeric_label_reference))))
+
+==========
+[labels/numeric] local numeric label backward reference
+==========
+foo 1b
+---
+
+(program
+  (instruction
+    opcode: (opcode)
+    operands: (operands
+      operand: (local_numeric_label_reference))))

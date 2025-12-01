@@ -1,0 +1,34 @@
+==========
+[program/error] decimal without context
+:error
+==========
+123
+---
+
+==========
+[program/error] hexadecimal without context
+:error
+==========
+0xAB
+---
+
+==========
+[program/error] octal without context
+:error
+==========
+012
+---
+
+==========
+[program/error] char without context
+:error
+==========
+'a'
+---
+
+==========
+[program/error] string without context
+:error
+==========
+"foo"
+---

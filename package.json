@@ -1,0 +1,72 @@
+{
+  "name": "tree-sitter-mips",
+  "version": "0.2.0",
+  "description": "A syntax parser for the MIPS Instruction Set Architecture.",
+  "repository": "github:tree-sitter/tree-sitter-mips",
+  "license": "MIT",
+  "author": {
+    "name": "Oskar Meyenburg",
+    "email": "omeyenburg@gmail.com"
+  },
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "mips"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**",
+    "*.wasm"
+  ],
+  "dependencies": {
+    "node-addon-api": "^8.3.0",
+    "node-gyp-build": "^4.8.4"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "eslint-config-treesitter": "^1.0.2",
+    "prebuildify": "^6.0.1",
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-cli": "^0.24.5"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "lint": "eslint grammar.js",
+    "lint:fix": "eslint grammar.js --fix",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "test:node": "node --test bindings/node/*_test.js",
+    "parse": "parse() { tree-sitter parse <(printf \"$1\"); }; parse",
+    "parse:file": "tree-sitter parse",
+    "version": "grep $(jq -r '.metadata.version' tree-sitter.json) * -r --exclude-dir=node_modules/ --exclude-dir=target --exclude-dir=build --exclude-dir=test --exclude-dir=bindings",
+    "g": "tree-sitter generate",
+    "t": "tree-sitter test",
+    "p": "parse() { tree-sitter parse <(printf \"$1\"); }; parse",
+    "gp": "parse() { tree-sitter parse <(printf \"$1\"); }; tree-sitter generate && parse",
+    "gt": "tree-sitter generate && tree-sitter test"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.mips",
+      "injection-regex": "^mips$"
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+==========
+[directives/expressions] control directive with addition and space before operator
+==========
+.foo 1 +2
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] control directive with addition and comment before operator
+==========
+.foo 1/* bar */+2
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (decimal)
+        (comment)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] control directive with multiplication and space before operator
+==========
+.bar 3 *4
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] control directive with assignment and space before equals
+==========
+.set var =10
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] control directive with assignment and spaces around equals
+==========
+.set var = 10
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (symbol)
+        operator: (assignment_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] control directive with bitwise OR and space before operator
+==========
+.foo 8 |4
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (decimal)
+        operator: (bitwise_or_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] control directive with mixed precedence
+==========
+.foo 2+3*4
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))))))
+
+==========
+[directives/expressions] control directive with multiple expressions
+==========
+.foo 1 +2, 3 *4
+---
+
+(program
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (control_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal))
+      (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] integer directive without spaces
+==========
+.word 1+2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] integer directive with spaces
+==========
+.word 1 + 2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] integer directive with modulo expression with spaces
+==========
+.word 1 % 2
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] integer directive with mixed precedence
+==========
+.word 2+3*4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (binary_expression
+          left: (decimal)
+          operator: (multiplicative_operator)
+          right: (decimal))))))
+
+==========
+[directives/expressions] integer directive with left associativity
+==========
+.word 1+2+3
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (binary_expression
+          left: (decimal)
+          operator: (additive_operator)
+          right: (decimal))
+        operator: (additive_operator)
+        right: (decimal)))))
+
+==========
+[directives/expressions] integer directive with multiple comma-separated expressions
+==========
+.word 1+2, 3*4
+---
+
+(program
+  (directive
+    mnemonic: (numeric_mnemonic)
+    operands: (numeric_operands
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal))
+      (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal)))))

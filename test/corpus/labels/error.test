@@ -1,0 +1,22 @@
+==========
+[labels/error] space before colon
+==========
+foo :
+---
+
+(program
+  (global_label))
+
+==========
+[labels/error] local label reference with colon
+:error
+==========
+foo .L123:
+---
+
+==========
+[labels/error] global numeric label with leading 0
+:error
+==========
+012:
+---
