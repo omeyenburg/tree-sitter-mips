@@ -9,6 +9,7 @@
 [
   (elf_type_tag)
   (option_flag)
+  (macro_parameter_qualifier)
 ] @type
 
 ;; Labels & symbols
@@ -32,7 +33,8 @@
 (macro_name) @label
 [
   (macro_variable)
-  (macro_parameter)
+  (string_macro_variable)
+  (macro_parameter_name)
 ] @parameter
 
 ;; Primitives
@@ -55,6 +57,7 @@
 ] @comment
 
 [
+  "="
   ","
   ";"
 ] @punctuation.delimiter

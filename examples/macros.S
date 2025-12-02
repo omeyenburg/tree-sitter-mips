@@ -1,14 +1,12 @@
-# Basic macro definition
-.macro simple_macro
+.macro FOO
     nop
 .endm
 
-# Macro with parameters
-.macro two_param arg1, arg2
-    add \arg1, \arg2, $zero
+.macro BAR arg1, arg2
+    add \arg1, \arg2, zero
 .end_macro
 
-# Macro with parameters in parenthesis
-.macro two_param(arg1, arg2)
-    add \arg1, \arg2, $zero
+.macro BAZ(arg1:req, arg2=label)
+    .string "Hello World \arg1"
+    j \arg2
 .end_macro

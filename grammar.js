@@ -579,7 +579,7 @@ module.exports = grammar({
 
     // Example: `main:`, `main :`
     global_label: $ => token(prec(2, /[a-zA-Z_.][a-zA-Z0-9_.$]*[ \t]*:/)),
-    symbol: $ => prec(-1, /[a-zA-Z_.][a-zA-Z0-9_.$]*/),
+    symbol: $ => prec(-1, /[a-zA-Z_.][a-zA-Z0-9_.$@]*/),
 
     // Example: `123:`, `123 :`
     // Referenced by number literal

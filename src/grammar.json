@@ -2855,7 +2855,7 @@
       "value": -1,
       "content": {
         "type": "PATTERN",
-        "value": "[a-zA-Z_.][a-zA-Z0-9_.$]*"
+        "value": "[a-zA-Z_.][a-zA-Z0-9_.$@]*"
       }
     },
     "global_numeric_label": {
@@ -3012,6 +3012,5 @@
     "_statement_separator_with_comment_node",
     "_multiline_operand_separator_with_comment_node"
   ],
-  "supertypes": [],
-  "reserved": {}
+  "supertypes": []
 }
