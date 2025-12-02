@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-mips"
 description = "A syntax parser for the MIPS Instruction Set Architecture."
-version = "0.2.0"
+version = "0.3.0"
 keywords = ["incremental", "parsing", "tree-sitter", "mips"]
 classifiers = [
   "Intended Audience :: Developers",
@@ -14,7 +14,7 @@ classifiers = [
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed",
 ]
-authors = [{ name = "Oskar Meyenburg", email = "oskar.meyenburg@gmail.com" }]
+authors = [{ name = "Oskar Meyenburg", email = "omeyenburg@gmail.com" }]
 requires-python = ">=3.9"
 license.text = "MIT"
 readme = "README.md"

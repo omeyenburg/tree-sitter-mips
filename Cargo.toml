@@ -1,8 +1,8 @@
 [package]
 name = "tree-sitter-mips"
 description = "A syntax parser for the MIPS Instruction Set Architecture."
-version = "0.2.0"
-authors = ["Oskar Meyenburg <oskar.meyenburg@gmail.com>"]
+version = "0.3.0"
+authors = ["Oskar Meyenburg <omeyenburg@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "mips"]

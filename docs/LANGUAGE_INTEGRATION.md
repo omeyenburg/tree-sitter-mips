@@ -55,7 +55,7 @@ Requires `tree-sitter` version `0.23.0` or higher.
 Add to `Cargo.toml`:
 ```toml
 tree-sitter = "0.25.8"
-tree-sitter-mips = "0.2.0"
+tree-sitter-mips = "0.3.0"
 ```
 
 **Example:**
@@ -84,7 +84,7 @@ Requires Go >=1.22.
 Add to `go.mod`:
 ```gomod
 require github.com/tree-sitter/go-tree-sitter v0.24.0
-require github.com/omeyenburg/tree-sitter-mips v0.2.0
+require github.com/omeyenburg/tree-sitter-mips v0.3.0
 ```
 
 **Example:**

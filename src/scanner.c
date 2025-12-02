@@ -263,19 +263,6 @@ static void scan_identifier_sequence(TSLexer* lexer) {
 }
 
 /**
- * Check if current position is a label (identifier followed by colon).
- * Call `lexer->mark_end(lexer)` before!
- */
-static bool is_label(TSLexer* lexer) {
-    if (lexer->lookahead != '_' && !is_ascii_alpha(lexer->lookahead))
-        return false;
-
-    scan_identifier_sequence(lexer);
-
-    return skip_to_colon(lexer);
-}
-
-/**
  * Check if current position is a numeric label (digits followed by colon).
  * Call `lexer->mark_end(lexer)` before!
  */
@@ -359,11 +346,6 @@ static bool check_operator_after_space(TSLexer* lexer,
             // It's a macro variable, not an operator
             return false;
         }
-        // Not followed by identifier char, continue as operator
-        int operator_char = '%'; // or '$' or '\\'
-        bool next_is_space = !lexer->eof(lexer) && is_space(lexer->lookahead);
-        bool next_is_operator =
-            !lexer->eof(lexer) && is_valid_operator_start(lexer->lookahead);
 
         // These can't be unary, so treat as binary
         if (is_valid_operator_space) {
