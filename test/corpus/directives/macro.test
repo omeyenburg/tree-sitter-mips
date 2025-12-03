@@ -177,7 +177,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (macro_variable))))
+      operand: (macro_variable))))
 
 ==========
 [directives/macro] float directive with macro variable
@@ -189,7 +189,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (macro_variable))))
+      operand: (macro_variable))))
 
 ==========
 [directives/macro] string directive with macro variable

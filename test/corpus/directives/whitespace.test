@@ -9,7 +9,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)))
+      operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
 
@@ -24,7 +24,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)))
+      operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
 
@@ -39,10 +39,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] trailing space after string directive before new line
@@ -100,7 +100,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] space after operands before semicolon
@@ -112,7 +112,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] space before mnemonic
@@ -164,8 +164,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol)
-      (symbol))))
+      operand: (symbol)
+      operand: (symbol))))
 
 ==========
 [directives/whitespace] control directive with argument followed by line with CRLF
@@ -178,7 +178,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol))))
+      operand: (symbol))))
 
 ==========
 [directives/whitespace] space before comma with decimals in control directive
@@ -190,8 +190,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] space before comma with decimals
@@ -203,8 +203,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] tab before comma with floats
@@ -216,8 +216,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (float)
-      (float))))
+      operand: (float)
+      operand: (float))))
 
 ==========
 [directives/whitespace] tab before comma with symbols
@@ -229,8 +229,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol)
-      (symbol))))
+      operand: (symbol)
+      operand: (symbol))))
 
 ==========
 [directives/whitespace] tab before comma with decimals
@@ -242,8 +242,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] tab before comma with floats
@@ -255,8 +255,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (float)
-      (float))))
+      operand: (float)
+      operand: (float))))
 
 ==========
 [directives/whitespace] control directive with new line after comma between operands
@@ -269,8 +269,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] numeric directive with new line after comma between operands
@@ -283,8 +283,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] string directive with new line after comma between operands
@@ -311,7 +311,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)))
+      operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
 
@@ -326,7 +326,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)))
+      operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
 
@@ -341,10 +341,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/whitespace] directive followed by label starting with underscore

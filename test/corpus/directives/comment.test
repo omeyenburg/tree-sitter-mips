@@ -9,8 +9,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -24,8 +24,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -40,8 +40,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -56,8 +56,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -71,8 +71,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -87,8 +87,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -164,7 +164,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)))
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -177,7 +177,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)))
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -190,7 +190,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)))
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -203,8 +203,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -218,11 +218,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] comment in multiline directive with space before
@@ -235,11 +235,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] comment in multiline directive with tab before
@@ -252,11 +252,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] comment after multiline directive
@@ -269,10 +269,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -286,10 +286,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -303,10 +303,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -321,10 +321,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -338,11 +338,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] C style comment in multiline directive with space before
@@ -355,11 +355,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] C style comment in multiline directive with tab before
@@ -372,11 +372,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] C style comment after multiline directive
@@ -389,10 +389,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -406,10 +406,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -423,10 +423,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -441,10 +441,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -458,11 +458,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] C style block comment in multiline directive with space before
@@ -475,11 +475,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] C style block comment in multiline directive with tab before
@@ -492,11 +492,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
+      operand: (decimal)
+      operand: (decimal)
       (comment)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/comment] C style block comment after multiline directive
@@ -509,10 +509,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -526,10 +526,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -543,10 +543,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
 
 ==========
@@ -561,12 +561,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)))
   (comment))
-
 
 ==========
 [directives/comment] inline C style block comment before comma
@@ -578,9 +577,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
+      operand: (decimal)
       (comment)
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/comment] second operand on new line after C-style block comment on new line
@@ -594,9 +593,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
+      operand: (decimal)
       (comment)
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/comment] second operand directly after C-style block comment on new line
@@ -609,9 +608,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
+      operand: (decimal)
       (comment)
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/comment] second operand separated by space from C-style block comment on new line
@@ -624,9 +623,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
+      operand: (decimal)
       (comment)
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/comment] directive with comment followed by label
@@ -667,6 +666,7 @@ baz:
 # comment
 .baz
 ---
+
 (program
   (directive
     (control_mnemonic)

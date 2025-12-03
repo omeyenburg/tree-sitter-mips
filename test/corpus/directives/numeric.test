@@ -8,7 +8,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/numeric] integer directive with octal
@@ -20,7 +20,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (octal))))
+      operand: (octal))))
 
 ==========
 [directives/numeric] integer directive with hexadecimal
@@ -32,7 +32,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (hexadecimal))))
+      operand: (hexadecimal))))
 
 ==========
 [directives/numeric] integer directive with char
@@ -44,7 +44,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (char))))
+      operand: (char))))
 
 ==========
 [directives/numeric] integer directive with multiple space-separated decimals
@@ -56,9 +56,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/numeric] directive with multiple comma-separated decimals
@@ -70,9 +70,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/numeric] directive with multiple decimals and trailing space
@@ -84,9 +84,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/numeric] directive with multiple decimals and trailing tab
@@ -98,9 +98,9 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/numeric] directive with integer values over multiple lines
@@ -113,10 +113,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/numeric] integer directive over multiple lines with trailing spaces
@@ -129,10 +129,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/numeric] integer directive over multiple lines with trailing tabs
@@ -145,10 +145,10 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal)
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/numeric] float directive with single value
@@ -160,7 +160,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (float))))
+      operand: (float))))
 
 ==========
 [directives/numeric] float directive with decimal value
@@ -172,7 +172,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/numeric] float directive with char value
@@ -184,7 +184,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (char))))
+      operand: (char))))
 
 ==========
 [directives/numeric] float directive with multiple values
@@ -196,8 +196,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (float)
-      (float))))
+      operand: (float)
+      operand: (float))))
 
 ==========
 [directives/numeric] float directive over multiple lines
@@ -210,8 +210,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (float)
-      (float))))
+      operand: (float)
+      operand: (float))))
 
 ==========
 [directives/numeric] float directive over multiple lines with trailing spaces
@@ -224,8 +224,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (float)
-      (float))))
+      operand: (float)
+      operand: (float))))
 
 ==========
 [directives/numeric] float directive over multiple lines with trailing tabs
@@ -238,8 +238,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (float)
-      (float))))
+      operand: (float)
+      operand: (float))))
 
 ==========
 [directives/numeric] directive followed by float (continuation)
@@ -247,6 +247,7 @@
 .float 1.0
 .5
 ---
+
 (program
   (directive
     (numeric_mnemonic)
@@ -260,6 +261,7 @@
 .byte 1
 2
 ---
+
 (program
   (directive
     (numeric_mnemonic)
@@ -272,6 +274,7 @@
 ==========
 .word 1/* foo */2
 ---
+
 (program
   (directive
     (numeric_mnemonic)
@@ -285,6 +288,7 @@
 ==========
 .word/* foo */ 2
 ---
+
 (program
   (directive
     (numeric_mnemonic)
@@ -298,6 +302,7 @@
 .word 1 # foo
 .word 2 # bar
 ---
+
 (program
   (directive
     (numeric_mnemonic)
@@ -317,6 +322,7 @@
 
 
 ---
+
 (program
   (directive
     (control_mnemonic)

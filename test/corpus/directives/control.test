@@ -8,7 +8,6 @@
   (directive
     mnemonic: (control_mnemonic)))
 
-
 ==========
 [directives/control] control statement with argument followed by underscore prefixed label
 ==========
@@ -20,7 +19,7 @@ _baz:
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol)))
+      operand: (symbol)))
   (global_label))
 
 ==========
@@ -34,7 +33,7 @@ _baz:
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol)))
+      operand: (symbol)))
   (local_numeric_label))
 
 ==========
@@ -47,9 +46,9 @@ _baz:
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)
+      operand: (decimal)
       (comment)
-      (decimal))))
+      operand: (decimal))))
 
 ==========
 [directives/control] mnemonic directly followed by comment
@@ -83,7 +82,7 @@ _baz:
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (elf_type_tag))))
+      operand: (elf_type_tag))))
 
 ==========
 [directives/control] option flag operand
@@ -95,4 +94,4 @@ _baz:
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (option_flag))))
+      operand: (option_flag))))

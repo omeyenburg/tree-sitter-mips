@@ -8,7 +8,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (binary_expression
+      operand: (binary_expression
         left: (decimal)
         operator: (additive_operator)
         right: (decimal)))))
@@ -23,11 +23,11 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (binary_expression
+      operand: (binary_expression
         left: (decimal)
         operator: (additive_operator)
         right: (decimal))
-      (binary_expression
+      operand: (binary_expression
         left: (decimal)
         operator: (additive_operator)
         right: (decimal)))))
@@ -43,8 +43,8 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (decimal)
-      (decimal))))
+      operand: (decimal)
+      operand: (decimal))))
 
 ==========
 [directives/control] binary expression on same line
@@ -56,8 +56,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol)
-      (binary_expression
+      operand: (symbol)
+      operand: (binary_expression
         left: (decimal)
         operator: (additive_operator)
         right: (decimal)))))
@@ -72,7 +72,7 @@
   (directive
     mnemonic: (numeric_mnemonic)
     operands: (numeric_operands
-      (binary_expression
+      operand: (binary_expression
         left: (float)
         operator: (additive_operator)
         right: (float)))))

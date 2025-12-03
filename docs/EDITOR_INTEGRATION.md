@@ -22,7 +22,9 @@ To use `tree-sitter-mips` in NeoVim, use the plugin [nvim-treesitter](https://gi
     }
   ```
 2. Run `:TSInstall mips` to install or update the parser.
-3. Copy the queries to enable highlighting:
+3. Copy the queries into `<your-nvim-config>/queries/mips/` to enable highlighting.  
+
+You can copy `queries/*` manually to `<your-nvim-config>/queries/mips/` or use these commands:  
 
 **Linux/Unix:**
 ```sh
@@ -37,3 +39,5 @@ mkdir "%LOCALAPPDATA%\nvim\queries\mips"
 curl -L -o "%LOCALAPPDATA%\nvim\queries\mips\highlights.scm" https://raw.githubusercontent.com/omeyenburg/tree-sitter-mips/main/queries/highlights.scm
 curl -L -o "%LOCALAPPDATA%\nvim\queries\mips\indents.scm" https://raw.githubusercontent.com/omeyenburg/tree-sitter-mips/main/queries/indents.scm
 ```
+
+Now any `.asm`, `.s` and `.S` files will have beautiful highlighting :)

@@ -229,7 +229,7 @@ foo/**/(/**/1/**/,/**/2/**/)
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (decimal)
-      (decimal)))
+      operand: (decimal)
+      operand: (decimal)))
   (instruction
     opcode: (macro_variable)))

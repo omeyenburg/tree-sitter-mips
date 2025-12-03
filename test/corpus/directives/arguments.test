@@ -3,6 +3,7 @@
 ==========
 .word
 ---
+
 (program
   (directive
     mnemonic: (numeric_mnemonic)))
@@ -17,8 +18,8 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol)
-      (symbol))))
+      operand: (symbol)
+      operand: (symbol))))
 
 ==========
 [directives/arguments] comma-separated symbols
@@ -30,5 +31,5 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (symbol)
-      (symbol))))
+      operand: (symbol)
+      operand: (symbol))))

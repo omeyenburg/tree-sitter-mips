@@ -150,7 +150,7 @@ module.exports = grammar({
       '.float', '.double', '.single',
     ),
     numeric_operands: $ => seq(
-      $._expression,
+      field('operand', $._expression),
       repeat(seq(
         choice(
           seq(',', optional(choice(
@@ -161,7 +161,7 @@ module.exports = grammar({
           $._multiline_operand_separator_no_comment,
           $._multiline_operand_separator_with_comment_node,
         ),
-        $._expression,
+        field('operand', $._expression),
       )),
       optional(choice(
         repeat(choice($._multiline_operand_separator_no_comment, $._multiline_operand_separator_with_comment_node)),
@@ -203,7 +203,7 @@ module.exports = grammar({
       // Single non-string operand
       choice($.macro_variable, $.address),
     )),
-    _string_operand: $ => choice($.string, $.macro_variable, $.address),
+    _string_operand: $ => field('operand', choice($.string, $.macro_variable, $.address)),
 
     _control_directive: $ => seq(
       field('mnemonic', $.control_mnemonic),
@@ -224,12 +224,12 @@ module.exports = grammar({
         $._control_operand,
       )),
     ),
-    _control_operand: $ => choice(
+    _control_operand: $ => field('operand', choice(
       $._expression,
       $.string,
       $.elf_type_tag,
       $.option_flag,
-    ),
+    )),
     _control_operand_separator: $ => choice(
       seq(',', optional(choice(
         $._multiline_operand_separator_no_comment,
@@ -259,21 +259,21 @@ module.exports = grammar({
     ),
     opcode: $ => token(/[a-zA-Z_][a-zA-Z0-9_.]*/),
     operands: $ => seq(
-      field('operand', $._operand),
+      $._operand,
       repeat(seq(
         choice(
           ',',
           $._operand_separator,
           $._multiline_operand_separator_with_comment_node,
         ),
-        field('operand', $._operand),
+        $._operand,
       )),
       optional($._operand_separator),
     ),
-    _operand: $ => choice(
+    _operand: $ => field('operand', choice(
       $._expression,
       $.string,
-    ),
+    )),
 
     // Support macro-style calling.
     // Examples: `exit(0)`, `for($t0, 0, 3)`
@@ -557,11 +557,11 @@ module.exports = grammar({
     string_macro_variable: $ => token(/\\[0-9a-zA-Z_$%]+(\\\(\))?/),
 
     macro_name: $ => token(/[a-zA-Z_][a-zA-Z0-9_$]*/),
-    macro_parameter: $ => prec.right(seq(
+    macro_parameter: $ => field('parameter', prec.right(seq(
       field('name', $.macro_parameter_name),
       optional(field('qualifier', $.macro_parameter_qualifier)),
       optional(field('value', seq('=', $._expression))),
-    )),
+    ))),
     macro_parameter_name: $ => token(/[%$\\]?[0-9a-zA-Z_$%\\]+/),
     macro_parameter_qualifier: $ => token(':req'),
 

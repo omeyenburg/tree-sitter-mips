@@ -8,7 +8,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (binary_expression
+      operand: (binary_expression
         left: (symbol)
         operator: (assignment_operator)
         right: (decimal)))))
@@ -23,7 +23,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (binary_expression
+      operand: (binary_expression
         left: (symbol)
         operator: (assignment_operator)
         right: (char)))))
@@ -38,11 +38,11 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (binary_expression
+      operand: (binary_expression
         left: (symbol)
         operator: (assignment_operator)
         right: (decimal))
-      (binary_expression
+      operand: (binary_expression
         left: (symbol)
         operator: (assignment_operator)
         right: (decimal)))))
@@ -57,7 +57,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (binary_expression
+      operand: (binary_expression
         left: (symbol)
         operator: (assignment_operator)
         right: (decimal)))))
@@ -72,7 +72,7 @@
   (directive
     mnemonic: (control_mnemonic)
     operands: (control_operands
-      (binary_expression
+      operand: (binary_expression
         left: (symbol)
         operator: (assignment_operator)
         right: (decimal)))))
