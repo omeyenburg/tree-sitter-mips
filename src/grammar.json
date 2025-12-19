@@ -191,6 +191,47 @@
           {
             "type": "SYMBOL",
             "name": "_label"
+          },
+          {
+            "type": "PREC",
+            "value": -10,
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "char"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "octal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "binary"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "decimal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "hexadecimal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "float"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "register"
+                }
+              ]
+            }
           }
         ]
       }
@@ -694,6 +735,10 @@
         },
         {
           "type": "STRING",
+          "value": ".octa"
+        },
+        {
+          "type": "STRING",
           "value": ".2byte"
         },
         {
@@ -746,6 +791,26 @@
         },
         {
           "type": "STRING",
+          "value": ".fill"
+        },
+        {
+          "type": "STRING",
+          "value": ".skip"
+        },
+        {
+          "type": "STRING",
+          "value": ".space"
+        },
+        {
+          "type": "STRING",
+          "value": ".null"
+        },
+        {
+          "type": "STRING",
+          "value": ".zero"
+        },
+        {
+          "type": "STRING",
           "value": ".align"
         },
         {
@@ -771,14 +836,6 @@
         {
           "type": "STRING",
           "value": ".dtpreldword"
-        },
-        {
-          "type": "STRING",
-          "value": ".skip"
-        },
-        {
-          "type": "STRING",
-          "value": ".space"
         }
       ]
     },

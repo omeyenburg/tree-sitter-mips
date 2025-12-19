@@ -859,11 +859,27 @@
       "required": false,
       "types": [
         {
+          "type": "binary",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
         {
+          "type": "decimal",
+          "named": true
+        },
+        {
           "type": "directive",
+          "named": true
+        },
+        {
+          "type": "float",
           "named": true
         },
         {
@@ -872,6 +888,10 @@
         },
         {
           "type": "global_numeric_label",
+          "named": true
+        },
+        {
+          "type": "hexadecimal",
           "named": true
         },
         {
@@ -888,6 +908,18 @@
         },
         {
           "type": "macro_label",
+          "named": true
+        },
+        {
+          "type": "octal",
+          "named": true
+        },
+        {
+          "type": "register",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -1191,6 +1223,10 @@
     "named": false
   },
   {
+    "type": ".fill",
+    "named": false
+  },
+  {
     "type": ".float",
     "named": false
   },
@@ -1212,6 +1248,14 @@
   },
   {
     "type": ".long",
+    "named": false
+  },
+  {
+    "type": ".null",
+    "named": false
+  },
+  {
+    "type": ".octa",
     "named": false
   },
   {
@@ -1256,6 +1300,10 @@
   },
   {
     "type": ".word",
+    "named": false
+  },
+  {
+    "type": ".zero",
     "named": false
   },
   {

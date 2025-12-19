@@ -68,6 +68,18 @@ module.exports = grammar({
       ),
       seq($._line_comment, /\r?\n/),
       $._label,
+
+      // Allow invalid primitives for better parsing and feedback
+      prec(-10, choice(
+        $.string,
+        $.char,
+        $.octal,
+        $.binary,
+        $.decimal,
+        $.hexadecimal,
+        $.float,
+        $.register,
+      )),
     )),
 
     _whitespace: $ => /[ \t]+/,
@@ -145,16 +157,17 @@ module.exports = grammar({
       $.string_mnemonic,
     ),
     integer_mnemonic: $ => choice(
-      '.byte',
+      '.byte', '.octa',
       '.2byte', '.short', '.half', '.hword',
       '.4byte', '.word', '.int',
       '.8byte', '.dword', '.long', '.quad',
       '.comm', '.lcomm',
+      '.fill', '.skip', '.space', '.null', '.zero',
       '.align', '.balign', '.p2align',
       '.sleb128', '.uleb128',
       '.dtprelword', '.dtpreldword',
-      '.skip', '.space',
     ),
+
     float_mnemonic: $ => choice(
       '.float', '.double', '.single',
     ),
