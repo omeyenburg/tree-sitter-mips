@@ -53,7 +53,7 @@ bar :
 (program
   (directive
     (control_mnemonic)
-    (control_operands
+    (directive_operands
       (decimal)))
   (global_label))
 
@@ -67,7 +67,7 @@ bar :
 (program
   (directive
     (string_mnemonic)
-    (string_operands
+    (directive_operands
       (string)))
   (global_label))
 
@@ -93,7 +93,7 @@ bar :
 (program
   (directive
     (control_mnemonic)
-    (control_operands
+    (directive_operands
       (decimal)))
   (local_numeric_label))
 
@@ -107,6 +107,6 @@ bar :
 (program
   (directive
     (string_mnemonic)
-    (string_operands
+    (directive_operands
       (string)))
   (local_numeric_label))

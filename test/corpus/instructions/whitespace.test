@@ -6,8 +6,8 @@ foo 1,2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -19,8 +19,8 @@ foo 1 2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -32,8 +32,8 @@ foo	1	2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -45,8 +45,8 @@ foo 1 , 2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -58,8 +58,8 @@ foo	1	,	2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -71,7 +71,7 @@ foo	1	,	2
 
 (program
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
 
 ==========
 [instructions/whitespace] tab before opcode
@@ -81,7 +81,7 @@ foo	1	,	2
 
 (program
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
 
 =========
 [instructions/whitespace] trailing spaces after opcode
@@ -91,7 +91,7 @@ foo
 
 (program
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
 
 ==========
 [instructions/whitespace] trailing tab after opcode
@@ -101,7 +101,7 @@ foo
 
 (program
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
 
 ==========
 [instructions/whitespace] trailing spaces after operands
@@ -111,8 +111,8 @@ foo $t0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -123,8 +123,8 @@ foo $t0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -135,7 +135,7 @@ foo;
 
 (program
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
 
 ==========
 [instructions/whitespace] instruction without operands with space before semicolon
@@ -145,7 +145,7 @@ foo ;
 
 (program
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
 
 ==========
 [instructions/whitespace] instruction with operands with semicolon
@@ -155,8 +155,8 @@ foo $t0;
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -167,8 +167,8 @@ foo $t0 ;
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -179,8 +179,8 @@ foo (bar, baz)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (symbol)
       operand: (symbol))))
 
@@ -192,8 +192,8 @@ foo ( bar, baz )
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (symbol)
       operand: (symbol))))
 
@@ -206,7 +206,7 @@ foo
 
 (program
   (instruction
-    (opcode))
+    (instruction_mnemonic))
   (global_label))
 
 ==========
@@ -218,9 +218,9 @@ foo
 
 (program
   (instruction
-    (opcode))
+    (instruction_mnemonic))
   (instruction
-    (opcode)))
+    (instruction_mnemonic)))
 
 ==========
 [instructions/whitespace] instruction followed by indented directive
@@ -231,8 +231,8 @@ foo
 
 (program
   (instruction
-    (opcode))
+    (instruction_mnemonic))
   (directive
-    (numeric_mnemonic)
-    (numeric_operands
+    (integer_mnemonic)
+    (directive_operands
       (decimal))))

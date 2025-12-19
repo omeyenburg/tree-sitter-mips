@@ -6,7 +6,7 @@ foo# bar
 
 (program
   (instruction
-    opcode: (opcode))
+    mnemonic: (instruction_mnemonic))
   (comment))
 
 ==========
@@ -17,7 +17,7 @@ foo// bar
 
 (program
   (instruction
-    opcode: (opcode))
+    mnemonic: (instruction_mnemonic))
   (comment))
 
 ==========
@@ -28,7 +28,7 @@ foo/* bar */
 
 (program
   (instruction
-    opcode: (opcode)
+    mnemonic: (instruction_mnemonic)
     (comment)))
 
 ==========
@@ -39,7 +39,7 @@ foo # bar
 
 (program
   (instruction
-    opcode: (opcode))
+    mnemonic: (instruction_mnemonic))
   (comment))
 
 ==========
@@ -50,7 +50,7 @@ foo // bar
 
 (program
   (instruction
-    opcode: (opcode))
+    mnemonic: (instruction_mnemonic))
   (comment))
 
 ==========
@@ -61,7 +61,7 @@ foo /* bar */
 
 (program
   (instruction
-    opcode: (opcode))
+    mnemonic: (instruction_mnemonic))
   (comment))
 
 ==========
@@ -72,8 +72,8 @@ foo $t0# bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)))
   (comment))
 
@@ -85,8 +85,8 @@ foo $t0// bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)))
   (comment))
 
@@ -98,8 +98,8 @@ foo $t0/* bar */
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)))
   (comment))
 
@@ -111,8 +111,8 @@ foo $t0 # bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)))
   (comment))
 
@@ -124,8 +124,8 @@ foo $t0 // bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)))
   (comment))
 
@@ -137,8 +137,8 @@ foo $t0 /* bar */
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)))
   (comment))
 
@@ -150,8 +150,8 @@ foo $t0/* bar */,$t0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)
       (comment)
       operand: (register))))
@@ -164,8 +164,8 @@ foo $t0/* bar */ + $t0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (register)
         (comment)
@@ -180,9 +180,9 @@ foo/* bar */$t0
 
 (program
   (instruction
-    opcode: (opcode)
+    mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (operands
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -193,9 +193,9 @@ foo /* bar */$t0
 
 (program
   (instruction
-    opcode: (opcode)
+    mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (operands
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -206,9 +206,9 @@ foo/* bar */ $t0
 
 (program
   (instruction
-    opcode: (opcode)
+    mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (operands
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -219,9 +219,9 @@ foo/* bar */(1, 2)
 
 (program
   (instruction
-    opcode: (opcode)
+    mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (operands
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -233,9 +233,9 @@ foo(/* bar */1, 2)
 
 (program
   (instruction
-    opcode: (opcode)
+    mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (operands
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -247,8 +247,8 @@ foo(1, 2/* baz */)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))
     (comment)))
@@ -262,12 +262,12 @@ baz
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)))
   (comment)
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
 
 ==========
 [instructions/comment] comment after operands followed by next instruction with operand
@@ -278,13 +278,13 @@ baz 1
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)))
   (comment)
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal))))
 
 ==========
@@ -296,8 +296,8 @@ foo 1 # bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       (comment)
       operand: (decimal))))
@@ -312,8 +312,8 @@ foo 1 # bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)))
   (comment))
 
@@ -326,8 +326,8 @@ foo 1 # bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)))
   (comment)
   (directive
@@ -342,8 +342,8 @@ foo 1 # bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)))
   (comment)
   (directive

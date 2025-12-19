@@ -18,7 +18,7 @@ _baz:
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (symbol)))
   (global_label))
 
@@ -32,7 +32,7 @@ _baz:
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (symbol)))
   (local_numeric_label))
 
@@ -45,7 +45,7 @@ _baz:
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (decimal)
       (comment)
       operand: (decimal))))
@@ -81,7 +81,7 @@ _baz:
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (elf_type_tag))))
 
 ==========
@@ -93,5 +93,5 @@ _baz:
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (option_flag))))

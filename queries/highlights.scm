@@ -1,7 +1,8 @@
 ;; Directives
 [
   (macro_mnemonic)
-  (numeric_mnemonic)
+  (integer_mnemonic)
+  (float_mnemonic)
   (string_mnemonic)
   (control_mnemonic)
 ] @keyword
@@ -25,7 +26,7 @@
 ] @label
 
 ;; Instructions
-(opcode) @function
+(instruction_mnemonic) @function
 (register) @parameter
 (relocation_type) @type
 

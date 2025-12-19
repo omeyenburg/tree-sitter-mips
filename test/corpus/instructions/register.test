@@ -6,8 +6,8 @@ foo $t0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -18,8 +18,8 @@ foo $0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -30,8 +30,8 @@ foo $31
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -42,8 +42,8 @@ foo $gp
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -54,8 +54,8 @@ foo $zero
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -66,8 +66,8 @@ foo $f0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -78,8 +78,8 @@ foo $f31
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -90,8 +90,8 @@ foo sp
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))
 
 ==========
@@ -102,8 +102,8 @@ foo space
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (symbol))))
 
 ==========
@@ -114,6 +114,6 @@ foo x1
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register))))

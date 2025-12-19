@@ -6,7 +6,7 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)))
+    mnemonic: (integer_mnemonic)))
 
 ==========
 [directives/arguments] multiple symbols
@@ -17,7 +17,7 @@
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (symbol)
       operand: (symbol))))
 
@@ -30,6 +30,6 @@
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (symbol)
       operand: (symbol))))

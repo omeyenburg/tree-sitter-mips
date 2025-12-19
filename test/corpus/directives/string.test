@@ -7,8 +7,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string))))
+    operands: (directive_operands
+      operand: (string))))
 
 ==========
 [directives/string] string directive using asciiz mnemonic
@@ -19,8 +19,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string))))
+    operands: (directive_operands
+      operand: (string))))
 
 ==========
 [directives/string] string directive using string mnemonic
@@ -31,8 +31,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string))))
+    operands: (directive_operands
+      operand: (string))))
 
 ==========
 [directives/string] hash comment after string directive with space before
@@ -43,8 +43,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)))
+    operands: (directive_operands
+      operand: (string)))
   (comment))
 
 ==========
@@ -56,8 +56,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string))))
+    operands: (directive_operands
+      operand: (string))))
 
 ==========
 [directives/string] string containing escaped quote
@@ -68,8 +68,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string))))
+    operands: (directive_operands
+      operand: (string))))
 
 ==========
 [directives/string] string containing backslash
@@ -81,8 +81,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string
+    operands: (directive_operands
+      operand: (string
         (string_macro_variable)))))
 
 ==========
@@ -94,9 +94,9 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)
-      (string))))
+    operands: (directive_operands
+      operand: (string)
+      operand: (string))))
 
 ==========
 [directives/string] multiple strings with comma separator
@@ -107,9 +107,9 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)
-      (string))))
+    operands: (directive_operands
+      operand: (string)
+      operand: (string))))
 
 ==========
 [directives/string] multiple strings without separator
@@ -120,9 +120,9 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)
-      (string))))
+    operands: (directive_operands
+      operand: (string)
+      operand: (string))))
 
 ==========
 [directives/string] multiple strings with block comment separator
@@ -133,10 +133,10 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)
+    operands: (directive_operands
+      operand: (string)
       (comment)
-      (string))))
+      operand: (string))))
 
 ==========
 [directives/string] multiple strings with block comment no space
@@ -147,10 +147,10 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)
+    operands: (directive_operands
+      operand: (string)
       (comment)
-      (string))))
+      operand: (string))))
 
 ==========
 [directives/string] three strings mixed separators
@@ -161,10 +161,10 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)
-      (string)
-      (string))))
+    operands: (directive_operands
+      operand: (string)
+      operand: (string)
+      operand: (string))))
 
 ==========
 [directives/string] string directive without operands

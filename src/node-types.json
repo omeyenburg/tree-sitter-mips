@@ -101,7 +101,7 @@
         "required": false,
         "types": [
           {
-            "type": "operands",
+            "type": "_multiple_operands",
             "named": true
           }
         ]
@@ -320,7 +320,84 @@
     "fields": {}
   },
   {
-    "type": "control_operands",
+    "type": "decimal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "directive",
+    "named": true,
+    "fields": {
+      "mnemonic": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "control_mnemonic",
+            "named": true
+          },
+          {
+            "type": "float_mnemonic",
+            "named": true
+          },
+          {
+            "type": "integer_mnemonic",
+            "named": true
+          },
+          {
+            "type": "macro_mnemonic",
+            "named": true
+          },
+          {
+            "type": "string_mnemonic",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "macro_name",
+            "named": true
+          }
+        ]
+      },
+      "operands": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "directive_operands",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "macro_parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "directive_operands",
     "named": true,
     "fields": {
       "operand": {
@@ -418,88 +495,12 @@
     }
   },
   {
-    "type": "decimal",
+    "type": "elf_type_tag",
     "named": true,
     "fields": {}
   },
   {
-    "type": "directive",
-    "named": true,
-    "fields": {
-      "mnemonic": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "control_mnemonic",
-            "named": true
-          },
-          {
-            "type": "macro_mnemonic",
-            "named": true
-          },
-          {
-            "type": "numeric_mnemonic",
-            "named": true
-          },
-          {
-            "type": "string_mnemonic",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "macro_name",
-            "named": true
-          }
-        ]
-      },
-      "operands": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "control_operands",
-            "named": true
-          },
-          {
-            "type": "numeric_operands",
-            "named": true
-          },
-          {
-            "type": "string_operands",
-            "named": true
-          }
-        ]
-      },
-      "parameters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "macro_parameters",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "elf_type_tag",
+    "type": "float_mnemonic",
     "named": true,
     "fields": {}
   },
@@ -507,16 +508,16 @@
     "type": "instruction",
     "named": true,
     "fields": {
-      "opcode": {
+      "mnemonic": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "macro_variable",
+            "type": "instruction_mnemonic",
             "named": true
           },
           {
-            "type": "opcode",
+            "type": "macro_variable",
             "named": true
           }
         ]
@@ -526,7 +527,7 @@
         "required": false,
         "types": [
           {
-            "type": "operands",
+            "type": "instruction_operands",
             "named": true
           }
         ]
@@ -542,6 +543,101 @@
         }
       ]
     }
+  },
+  {
+    "type": "instruction_operands",
+    "named": true,
+    "fields": {
+      "operand": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "binary",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "decimal",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "hexadecimal",
+            "named": true
+          },
+          {
+            "type": "local_label_reference",
+            "named": true
+          },
+          {
+            "type": "local_numeric_label_reference",
+            "named": true
+          },
+          {
+            "type": "macro_variable",
+            "named": true
+          },
+          {
+            "type": "octal",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "relocation_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "integer_mnemonic",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "local_label_reference",
@@ -671,187 +767,6 @@
     "type": "multiplicative_operator",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "numeric_mnemonic",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "numeric_operands",
-    "named": true,
-    "fields": {
-      "operand": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "address",
-            "named": true
-          },
-          {
-            "type": "binary",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "char",
-            "named": true
-          },
-          {
-            "type": "decimal",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "hexadecimal",
-            "named": true
-          },
-          {
-            "type": "local_label_reference",
-            "named": true
-          },
-          {
-            "type": "local_numeric_label_reference",
-            "named": true
-          },
-          {
-            "type": "macro_variable",
-            "named": true
-          },
-          {
-            "type": "octal",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expression",
-            "named": true
-          },
-          {
-            "type": "register",
-            "named": true
-          },
-          {
-            "type": "relocation_expression",
-            "named": true
-          },
-          {
-            "type": "symbol",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "operands",
-    "named": true,
-    "fields": {
-      "operand": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "address",
-            "named": true
-          },
-          {
-            "type": "binary",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "char",
-            "named": true
-          },
-          {
-            "type": "decimal",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "hexadecimal",
-            "named": true
-          },
-          {
-            "type": "local_label_reference",
-            "named": true
-          },
-          {
-            "type": "local_numeric_label_reference",
-            "named": true
-          },
-          {
-            "type": "macro_variable",
-            "named": true
-          },
-          {
-            "type": "octal",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expression",
-            "named": true
-          },
-          {
-            "type": "register",
-            "named": true
-          },
-          {
-            "type": "relocation_expression",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "symbol",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "option_flag",
@@ -1083,33 +998,6 @@
     "type": "string_mnemonic",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "string_operands",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "address",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "macro_variable",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "symbol",
@@ -1383,6 +1271,10 @@
     "named": false
   },
   {
+    "type": "_multiple_operands",
+    "named": true
+  },
+  {
     "type": "additive_operator",
     "named": true
   },
@@ -1428,6 +1320,10 @@
   },
   {
     "type": "hexadecimal",
+    "named": true
+  },
+  {
+    "type": "instruction_mnemonic",
     "named": true
   },
   {
@@ -1480,10 +1376,6 @@
   },
   {
     "type": "octal",
-    "named": true
-  },
-  {
-    "type": "opcode",
     "named": true
   },
   {

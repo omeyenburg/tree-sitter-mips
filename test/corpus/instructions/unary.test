@@ -6,8 +6,8 @@ foo -10
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal))))
 
 ==========
@@ -18,8 +18,8 @@ foo -bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (unary_minus_operator)
         argument: (symbol)))))
@@ -32,8 +32,8 @@ foo 1 -1
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -45,8 +45,8 @@ foo 1 -(-1)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (unary_minus_operator)
@@ -61,8 +61,8 @@ foo 1 -- 1
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (additive_operator)
@@ -80,20 +80,20 @@ foo ~bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (bitwise_not_operator)
         argument: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (bitwise_not_operator)
         argument: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (bitwise_not_operator)
         argument: (symbol)))))
@@ -108,20 +108,20 @@ foo !bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (logical_not_operator)
         argument: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (logical_not_operator)
         argument: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (logical_not_operator)
         argument: (symbol)))))
@@ -136,15 +136,15 @@ foo 1 !!1
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (unary_minus_operator)
         argument: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (bitwise_not_operator)
@@ -152,8 +152,8 @@ foo 1 !!1
           operator: (bitwise_not_operator)
           argument: (decimal)))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (logical_not_operator)
@@ -171,16 +171,16 @@ foo 1 !(!1)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (unary_minus_operator)
         argument: (parenthesized_expression
           argument: (decimal)))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (bitwise_not_operator)
@@ -189,8 +189,8 @@ foo 1 !(!1)
             operator: (bitwise_not_operator)
             argument: (decimal))))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (logical_not_operator)
@@ -208,14 +208,14 @@ foo ~$s0
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (unary_minus_operator)
         argument: (register))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (bitwise_not_operator)
         argument: (register)))))
@@ -230,20 +230,20 @@ foo !%flag
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (unary_minus_operator)
         argument: (macro_variable))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (bitwise_not_operator)
         argument: (macro_variable))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (logical_not_operator)
         argument: (macro_variable)))))
@@ -257,16 +257,16 @@ foo ~%lo(symbol)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (unary_minus_operator)
         argument: (relocation_expression
           type: (relocation_type)
           argument: (symbol)))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (unary_expression
         operator: (bitwise_not_operator)
         argument: (relocation_expression
@@ -283,20 +283,20 @@ foo 1 !1
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal)))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (bitwise_not_operator)
         argument: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (unary_expression
         operator: (logical_not_operator)

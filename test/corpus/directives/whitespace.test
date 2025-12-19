@@ -7,8 +7,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
@@ -22,8 +22,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
@@ -37,8 +37,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)
       operand: (decimal)
       operand: (decimal)
@@ -54,8 +54,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string))))
+    operands: (directive_operands
+      operand: (string))))
 
 ==========
 [directives/whitespace] trailing tab after string directive before new line
@@ -67,8 +67,8 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string))))
+    operands: (directive_operands
+      operand: (string))))
 
 ==========
 [directives/whitespace] directive without operands with semicolon
@@ -98,8 +98,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal))))
 
 ==========
@@ -110,8 +110,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal))))
 
 ==========
@@ -163,7 +163,7 @@
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (symbol)
       operand: (symbol))))
 
@@ -177,7 +177,7 @@
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (symbol))))
 
 ==========
@@ -189,7 +189,7 @@
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -201,8 +201,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -214,8 +214,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (float_mnemonic)
+    operands: (directive_operands
       operand: (float)
       operand: (float))))
 
@@ -228,7 +228,7 @@
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (symbol)
       operand: (symbol))))
 
@@ -240,8 +240,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -253,8 +253,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (float_mnemonic)
+    operands: (directive_operands
       operand: (float)
       operand: (float))))
 
@@ -268,7 +268,7 @@
 (program
   (directive
     mnemonic: (control_mnemonic)
-    operands: (control_operands
+    operands: (directive_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -281,8 +281,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)
       operand: (decimal))))
 
@@ -296,9 +296,9 @@
 (program
   (directive
     mnemonic: (string_mnemonic)
-    operands: (string_operands
-      (string)
-      (string))))
+    operands: (directive_operands
+      operand: (string)
+      operand: (string))))
 
 ==========
 [directives/whitespace] CRLF after directive with directive in next line
@@ -309,8 +309,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
@@ -324,8 +324,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)))
   (directive
     mnemonic: (control_mnemonic)))
@@ -339,8 +339,8 @@
 
 (program
   (directive
-    mnemonic: (numeric_mnemonic)
-    operands: (numeric_operands
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
       operand: (decimal)
       operand: (decimal)
       operand: (decimal)
@@ -356,7 +356,7 @@ _label:
 (program
   (directive
     (control_mnemonic)
-    (control_operands
+    (directive_operands
       (symbol)))
   (global_label))
 
@@ -369,8 +369,8 @@ _label:
 
 (program
   (directive
-    (numeric_mnemonic)
-    (numeric_operands
+    (integer_mnemonic)
+    (directive_operands
       (decimal)))
   (global_numeric_label))
 
@@ -383,12 +383,12 @@ _label:
 
 (program
   (directive
-    (numeric_mnemonic)
-    (numeric_operands
+    (integer_mnemonic)
+    (directive_operands
       (decimal)))
   (directive
     (control_mnemonic)
-    (control_operands
+    (directive_operands
       (symbol))))
 
 ==========
@@ -400,11 +400,11 @@ nop
 
 (program
   (directive
-    (numeric_mnemonic)
-    (numeric_operands
+    (integer_mnemonic)
+    (directive_operands
       (decimal)))
   (instruction
-    (opcode)))
+    (instruction_mnemonic)))
 
 ==========
 [directives/whitespace] directive followed by label
@@ -415,8 +415,8 @@ main:
 
 (program
   (directive
-    (numeric_mnemonic)
-    (numeric_operands
+    (integer_mnemonic)
+    (directive_operands
       (decimal)))
   (global_label))
 
@@ -430,8 +430,8 @@ main:
 
 (program
   (directive
-    (numeric_mnemonic)
-    (numeric_operands
+    (integer_mnemonic)
+    (directive_operands
       (decimal)))
   (directive
     (control_mnemonic)))
@@ -444,4 +444,4 @@ main:
 
 (program
   (directive
-    (numeric_mnemonic)))
+    (integer_mnemonic)))

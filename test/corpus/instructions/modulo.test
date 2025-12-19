@@ -9,29 +9,29 @@ foo 4 %2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (macro_variable))))
 
@@ -45,8 +45,8 @@ foo %1 % %2 % %3
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -55,8 +55,8 @@ foo %1 % %2 % %3
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -65,8 +65,8 @@ foo %1 % %2 % %3
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (binary_expression
           left: (macro_variable)
@@ -83,8 +83,8 @@ foo 100 % 20 % 5 % 2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (binary_expression
           left: (binary_expression
@@ -105,8 +105,8 @@ foo (10 % 5) % 2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
@@ -116,8 +116,8 @@ foo (10 % 5) % 2
             operator: (multiplicative_operator)
             right: (decimal))))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (parenthesized_expression
           argument: (binary_expression
@@ -137,8 +137,8 @@ foo 10 % 3 / 2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -150,8 +150,8 @@ foo 10 % 3 / 2
           operator: (multiplicative_operator)
           right: (decimal)))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -160,8 +160,8 @@ foo 10 % 3 / 2
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -178,8 +178,8 @@ foo (4 % 2)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (parenthesized_expression
         argument: (binary_expression
           left: (decimal)
@@ -199,43 +199,43 @@ foo 1 % %2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (macro_variable))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (macro_variable))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (macro_variable)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (macro_variable)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (macro_variable)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
@@ -251,18 +251,18 @@ foo %1 %2%3
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (macro_variable)
       operand: (macro_variable)))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (macro_variable)
       operand: (macro_variable)))
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (macro_variable)
       operand: (binary_expression
         left: (macro_variable)

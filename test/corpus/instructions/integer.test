@@ -6,8 +6,8 @@ foo 100
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal))))
 
 ==========
@@ -18,8 +18,8 @@ foo -100
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal))))
 
 ==========
@@ -30,8 +30,8 @@ foo 012
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (octal))))
 
 ==========
@@ -42,8 +42,8 @@ foo 089
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal))))
 
 ==========
@@ -54,8 +54,8 @@ foo 0x0314
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (hexadecimal))))
 
 ==========
@@ -66,8 +66,8 @@ foo 0b11
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary))))
 
 ==========
@@ -78,8 +78,8 @@ foo -0x0123456789ABCDEFabcdef
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (hexadecimal))))
 
 ==========
@@ -90,8 +90,8 @@ foo 'A'
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (char))))
 
 ==========
@@ -102,8 +102,8 @@ foo '\n'
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (char))))
 
 ==========
@@ -114,8 +114,8 @@ foo '\''
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (char))))
 
 ==========
@@ -126,7 +126,7 @@ foo 1 -1
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (decimal)
       operand: (decimal))))

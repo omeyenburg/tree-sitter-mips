@@ -6,8 +6,8 @@ foo ($s0)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (address
         base: (register)))))
 
@@ -19,8 +19,8 @@ foo -100($s0)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (address
         offset: (decimal)
         base: (register)))))
@@ -33,8 +33,8 @@ foo bar($s0)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (address
         offset: (symbol)
         base: (register)))))
@@ -47,8 +47,8 @@ foo bar+100($s0)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (address
         offset: (binary_expression
           left: (symbol)
@@ -64,8 +64,8 @@ foo (bar+0x123)($s0)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (address
         offset: (parenthesized_expression
           argument: (binary_expression

@@ -6,8 +6,8 @@ foo $t0 $t1 $t2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)
       operand: (register)
       operand: (register))))
@@ -20,8 +20,8 @@ foo $t0,$t1,$t2
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (register)
       operand: (register)
       operand: (register))))
@@ -34,8 +34,8 @@ foo bar
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (symbol))))
 
 ==========
@@ -46,8 +46,8 @@ foo bar+4
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (binary_expression
         left: (symbol)
         operator: (additive_operator)
@@ -61,8 +61,8 @@ foo (bar+4)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (parenthesized_expression
         argument: (binary_expression
           left: (symbol)
@@ -77,8 +77,8 @@ foo(bar, baz)
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (symbol)
       operand: (symbol))))
 
@@ -91,8 +91,8 @@ foo "bar"
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (string))))
 
 ==========
@@ -104,8 +104,8 @@ baz
 
 (program
   (instruction
-    opcode: (opcode)
-    operands: (operands
+    mnemonic: (instruction_mnemonic)
+    operands: (instruction_operands
       operand: (string)))
   (instruction
-    opcode: (opcode)))
+    mnemonic: (instruction_mnemonic)))
