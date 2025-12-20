@@ -8,7 +8,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string))))
+      (string))))
 
 ==========
 [directives/string] string directive using asciiz mnemonic
@@ -20,7 +20,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string))))
+      (string))))
 
 ==========
 [directives/string] string directive using string mnemonic
@@ -32,7 +32,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string))))
+      (string))))
 
 ==========
 [directives/string] hash comment after string directive with space before
@@ -44,7 +44,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string)))
+      (string)))
   (comment))
 
 ==========
@@ -57,7 +57,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string))))
+      (string))))
 
 ==========
 [directives/string] string containing escaped quote
@@ -69,7 +69,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string))))
+      (string))))
 
 ==========
 [directives/string] string containing backslash
@@ -82,7 +82,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string
+      (string
         (string_macro_variable)))))
 
 ==========
@@ -95,8 +95,8 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string)
-      operand: (string))))
+      (string)
+      (string))))
 
 ==========
 [directives/string] multiple strings with comma separator
@@ -108,8 +108,8 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string)
-      operand: (string))))
+      (string)
+      (string))))
 
 ==========
 [directives/string] multiple strings without separator
@@ -121,8 +121,9 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string)
-      operand: (string))))
+      (string_concatenation
+        (string)
+        (string)))))
 
 ==========
 [directives/string] multiple strings with block comment separator
@@ -134,9 +135,9 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string)
+      (string)
       (comment)
-      operand: (string))))
+      (string))))
 
 ==========
 [directives/string] multiple strings with block comment no space
@@ -148,9 +149,9 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string)
+      (string)
       (comment)
-      operand: (string))))
+      (string))))
 
 ==========
 [directives/string] three strings mixed separators
@@ -162,9 +163,9 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string)
-      operand: (string)
-      operand: (string))))
+      (string)
+      (string)
+      (string))))
 
 ==========
 [directives/string] string directive without operands

@@ -74,7 +74,7 @@ foo $t0# bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)))
+      (register)))
   (comment))
 
 ==========
@@ -87,7 +87,7 @@ foo $t0// bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)))
+      (register)))
   (comment))
 
 ==========
@@ -100,7 +100,7 @@ foo $t0/* bar */
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)))
+      (register)))
   (comment))
 
 ==========
@@ -113,7 +113,7 @@ foo $t0 # bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)))
+      (register)))
   (comment))
 
 ==========
@@ -126,7 +126,7 @@ foo $t0 // bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)))
+      (register)))
   (comment))
 
 ==========
@@ -139,7 +139,7 @@ foo $t0 /* bar */
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)))
+      (register)))
   (comment))
 
 ==========
@@ -152,9 +152,9 @@ foo $t0/* bar */,$t0
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)
+      (register)
       (comment)
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/comment] inline C style block comment before operator
@@ -166,7 +166,7 @@ foo $t0/* bar */ + $t0
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (binary_expression
+      (binary_expression
         left: (register)
         (comment)
         operator: (additive_operator)
@@ -183,7 +183,7 @@ foo/* bar */$t0
     mnemonic: (instruction_mnemonic)
     (comment)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/comment] C style block comment between opcode and operands with space before
@@ -196,7 +196,7 @@ foo /* bar */$t0
     mnemonic: (instruction_mnemonic)
     (comment)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/comment] C style block comment between opcode and operands with space after
@@ -209,7 +209,7 @@ foo/* bar */ $t0
     mnemonic: (instruction_mnemonic)
     (comment)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/comment] call expression with C style block comment after opcode
@@ -222,8 +222,10 @@ foo/* bar */(1, 2)
     mnemonic: (instruction_mnemonic)
     (comment)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (parenthesized_expression
+        arguments: (instruction_operands
+          (decimal)
+          (decimal))))))
 
 ==========
 [instructions/comment] call expression with C style block comment before operands
@@ -232,12 +234,12 @@ foo(/* bar */1, 2)
 ---
 
 (program
-  (instruction
-    mnemonic: (instruction_mnemonic)
+  (call_statement
+    name: (symbol)
     (comment)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (decimal)
+      (decimal))))
 
 ==========
 [instructions/comment] call expression with C style block comment after operands
@@ -246,11 +248,11 @@ foo(1, 2/* baz */)
 ---
 
 (program
-  (instruction
-    mnemonic: (instruction_mnemonic)
+  (call_statement
+    name: (symbol)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))
+      (decimal)
+      (decimal))
     (comment)))
 
 ==========
@@ -264,7 +266,7 @@ baz
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)))
+      (decimal)))
   (comment)
   (instruction
     mnemonic: (instruction_mnemonic)))
@@ -280,12 +282,12 @@ baz 1
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)))
+      (decimal)))
   (comment)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal))))
+      (decimal))))
 
 ==========
 [instructions/comment] hash comment between operands
@@ -298,9 +300,9 @@ foo 1 # bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)
+      (decimal)
       (comment)
-      operand: (decimal))))
+      (decimal))))
 
 ==========
 [instructions/comment] hash comment after operand followed by empty line
@@ -314,7 +316,7 @@ foo 1 # bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)))
+      (decimal)))
   (comment))
 
 ==========
@@ -328,7 +330,7 @@ foo 1 # bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)))
+      (decimal)))
   (comment)
   (directive
     mnemonic: (control_mnemonic)))
@@ -344,7 +346,7 @@ foo 1 # bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)))
+      (decimal)))
   (comment)
   (directive
     mnemonic: (control_mnemonic)))

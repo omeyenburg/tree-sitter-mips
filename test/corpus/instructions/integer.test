@@ -8,7 +8,7 @@ foo 100
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal))))
+      (decimal))))
 
 ==========
 [instructions/integer] instruction with signed integer value
@@ -20,7 +20,7 @@ foo -100
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal))))
+      (decimal))))
 
 ==========
 [instructions/integer] instruction with octal value
@@ -32,7 +32,7 @@ foo 012
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (octal))))
+      (octal))))
 
 ==========
 [instructions/integer] instruction with decimal value with leading zero
@@ -44,7 +44,7 @@ foo 089
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal))))
+      (decimal))))
 
 ==========
 [instructions/integer] instruction with hexadecimal value
@@ -56,7 +56,7 @@ foo 0x0314
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (hexadecimal))))
+      (hexadecimal))))
 
 ==========
 [instructions/integer] instruction with binary value
@@ -68,7 +68,7 @@ foo 0b11
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (binary))))
+      (binary))))
 
 ==========
 [instructions/integer] instruction with signed hexadecimal value
@@ -80,7 +80,7 @@ foo -0x0123456789ABCDEFabcdef
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (hexadecimal))))
+      (hexadecimal))))
 
 ==========
 [instructions/integer] instruction with char value
@@ -92,7 +92,7 @@ foo 'A'
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (char))))
+      (char))))
 
 ==========
 [instructions/integer] instruction with escaped symbol
@@ -104,7 +104,7 @@ foo '\n'
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (char))))
+      (char))))
 
 ==========
 [instructions/integer] instruction with escaped single quote
@@ -116,7 +116,7 @@ foo '\''
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (char))))
+      (char))))
 
 ==========
 [instructions/integer] negative number as separate operand
@@ -128,5 +128,5 @@ foo 1 -1
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (decimal)
+      (decimal))))

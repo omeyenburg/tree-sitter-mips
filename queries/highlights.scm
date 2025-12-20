@@ -28,7 +28,7 @@
 ;; Instructions
 (instruction_mnemonic) @function
 (register) @parameter
-(relocation_type) @type
+; (relocation_type) @type
 
 ;; Macros
 (macro_name) @label

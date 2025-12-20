@@ -8,7 +8,7 @@ foo $t0
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] instruction with $0 numeric register
@@ -20,7 +20,7 @@ foo $0
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] instruction with $31 numeric register
@@ -32,7 +32,7 @@ foo $31
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] instruction with $gp register
@@ -44,7 +44,7 @@ foo $gp
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] instruction with $zero register
@@ -56,7 +56,7 @@ foo $zero
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] instruction with $f0 float register
@@ -68,7 +68,7 @@ foo $f0
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] instruction with $f31 float register
@@ -80,7 +80,7 @@ foo $f31
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] register without prefix
@@ -92,7 +92,7 @@ foo sp
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/register] symbol starting as register without prefix
@@ -104,7 +104,7 @@ foo space
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (symbol))))
+      (symbol))))
 
 ==========
 [instructions/register] MIPS prefix
@@ -116,4 +116,4 @@ foo x1
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))

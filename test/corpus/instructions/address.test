@@ -8,8 +8,9 @@ foo ($s0)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (address
-        base: (register)))))
+      (parenthesized_expression
+        arguments: (instruction_operands
+          (register))))))
 
 ==========
 [instructions/address] address with decimal offset
@@ -21,9 +22,10 @@ foo -100($s0)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (address
-        offset: (decimal)
-        base: (register)))))
+      (parenthesized_expression
+        head: (decimal)
+        arguments: (instruction_operands
+          (register))))))
 
 ==========
 [instructions/address] address with label
@@ -35,9 +37,10 @@ foo bar($s0)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (address
-        offset: (symbol)
-        base: (register)))))
+      (parenthesized_expression
+        head: (symbol)
+        arguments: (instruction_operands
+          (register))))))
 
 ==========
 [instructions/address] address with simple expression offset
@@ -49,12 +52,13 @@ foo bar+100($s0)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (address
-        offset: (binary_expression
+      (parenthesized_expression
+        head: (binary_expression
           left: (symbol)
           operator: (additive_operator)
           right: (decimal))
-        base: (register)))))
+        arguments: (instruction_operands
+          (register))))))
 
 ==========
 [instructions/address] address with parenthesized expression offset
@@ -66,10 +70,12 @@ foo (bar+0x123)($s0)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (address
-        offset: (parenthesized_expression
-          argument: (binary_expression
-            left: (symbol)
-            operator: (additive_operator)
-            right: (hexadecimal)))
-        base: (register)))))
+      (parenthesized_expression
+        head: (parenthesized_expression
+          arguments: (instruction_operands
+            (binary_expression
+              left: (symbol)
+              operator: (additive_operator)
+              right: (hexadecimal))))
+        arguments: (instruction_operands
+          (register))))))

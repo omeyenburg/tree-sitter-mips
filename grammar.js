@@ -28,15 +28,8 @@ module.exports = grammar({
   inline: $ => [
     $._whitespace,
     $._expression,
-    $._expression_argument,
     $._statement_separator_with_comment_node,
     $._multiline_operand_separator_with_comment_node,
-
-  ],
-
-  conflicts: $ => [
-    [$._instruction_operand, $.parenthesized_expression],
-    [$._concat_string],
   ],
 
   rules: {
@@ -46,6 +39,7 @@ module.exports = grammar({
         choice(
           $.directive,
           $.instruction,
+          $.call_statement,
           $._label,
         ),
       )),
@@ -61,7 +55,7 @@ module.exports = grammar({
           ';',
           seq(optional($._line_comment), choice($._statement_separator_no_comment, $._statement_separator_with_comment_node)),
         )),
-        seq($.instruction, choice(
+        seq(choice($.instruction, $.call_statement), choice(
           ';',
           seq(optional($._line_comment), choice($._statement_separator_no_comment, $._statement_separator_with_comment_node)),
         )),
@@ -184,7 +178,7 @@ module.exports = grammar({
     control_mnemonic: $ => prec(-1, /\.[a-z0-9_]+/),
 
     directive_operands: $ => seq(
-      field('operand', $._directive_operand),
+      $._directive_operand,
       repeat(seq(
         choice(
           seq(',', optional(choice(
@@ -195,7 +189,7 @@ module.exports = grammar({
           $._multiline_operand_separator_no_comment,
           $._multiline_operand_separator_with_comment_node,
         ),
-        field('operand', $._directive_operand),
+        $._directive_operand,
       )),
       optional(choice(
         repeat(choice($._multiline_operand_separator_no_comment, $._multiline_operand_separator_with_comment_node)),
@@ -203,7 +197,6 @@ module.exports = grammar({
     ),
     _directive_operand: $ => choice(
       $._expression,
-      $._concat_string,
       $.elf_type_tag,
       $.option_flag,
     ),
@@ -212,42 +205,52 @@ module.exports = grammar({
     instruction: $ => seq(
       field('mnemonic', choice($.instruction_mnemonic, $.macro_variable)),
       optional(choice(
-        $._call_expression,
         seq(
           choice($._whitespace, $._block_comment),
-          optional(choice(
-            field('operands', $.instruction_operands),
-            $._call_expression,
-          )),
+          optional(field('operands', $.instruction_operands)),
         ),
       )),
     ),
     instruction_mnemonic: $ => token(/[a-zA-Z_][a-zA-Z0-9_.]*/),
     instruction_operands: $ => seq(
-      $._instruction_operand,
+      $._expression,
       repeat(seq(
         choice(
           ',',
           $._operand_separator,
           $._multiline_operand_separator_with_comment_node,
         ),
-        $._instruction_operand,
+        $._expression,
       )),
       optional($._operand_separator),
     ),
-    _instruction_operand: $ => field('operand', choice(
-      $._expression,
-      $._concat_string,
+
+    // Any type of parenthesized expression
+    // - relocation expressions: `foo %hi(bar)`
+    // - parenthesized math expressions: `foo (1 + 2)`
+    // - addresses without offest: `foo ($t0)`
+    // - addresses with offest: `foo offset($t0)`
+    // - addresses with offest expression: `foo offset+4($t0)`
+    // - macro calls as operand: `foo bar($t0, 1, 2)`
+    parenthesized_expression: $ => prec(20, seq(
+      optional(field('head', $._expression)),
+      '(',
+      optional($._block_comment),
+      optional(field('arguments', $.instruction_operands)),
+      ')',
     )),
 
-    // Support macro-style calling.
-    // Examples: `exit(0)`, `for($t0, 0, 3)`
-    _call_expression: $ => prec(20, seq(
+    call_statement: $ => seq(
+      field('name', choice(
+        $.symbol,
+        $.macro_variable,
+        alias($.instruction_mnemonic, $.symbol),
+      )),
       '(',
       optional($._block_comment),
       optional(field('operands', $.instruction_operands)),
       ')',
-    )),
+    ),
 
     // Matches primitives, registers, macro variables and compound expressions.
     //
@@ -383,28 +386,23 @@ module.exports = grammar({
     ),
 
     // Any non-binary expression and primitive
-    _simple_expression: $ => choice(
-      $.parenthesized_expression,
+    _simple_expression: $ => prec.dynamic(1, choice(
       $.unary_expression,
-      $.relocation_expression,
-      $.address,
+      $.parenthesized_expression,
       $.macro_variable,
       $.register,
       $.local_label_reference,
       $.symbol,
       $.local_numeric_label_reference,
       $.char,
+      $.string_concatenation,
+      $.string,
       $.octal,
       $.binary,
       $.decimal,
       $.hexadecimal,
       $.float,
-    ),
-
-    // Parenthesized expression:
-    // Contains a new expression with any binary operations.
-    // Example: `(2 * 3)`
-    parenthesized_expression: $ => seq('(', $._expression_argument, ')'),
+    )),
 
     // Unary expression:
     // Supports recursive nesting.
@@ -415,75 +413,11 @@ module.exports = grammar({
         $.bitwise_not_operator,
         $.logical_not_operator,
       )),
-      $._expression_argument,
+      field('argument', $._expression),
     ),
     unary_minus_operator: $ => token('-'),
     bitwise_not_operator: $ => token('~'),
     logical_not_operator: $ => token('!'),
-
-    // Relocation expression:
-    // Examples: `%hi(foo)`, `%lo(123)`
-    relocation_expression: $ => seq(
-      field('type', $.relocation_type),
-      '(',
-      $._expression_argument,
-      ')',
-    ),
-    relocation_type: $ => token(choice(
-      '%abs64',
-      '%call16',
-      '%call_hi',
-      '%call_lo',
-      '%callhi16',
-      '%calllo16',
-      '%dtprel',
-      '%dtprel_hi',
-      '%dtprel_lo',
-      '%got',
-      '%got16',
-      '%got_disp',
-      '%got_hi',
-      '%got_lo',
-      '%got_ofst',
-      '%got_page',
-      '%gothi16',
-      '%gotlo16',
-      '%gottprel',
-      '%gp_disp',
-      '%gp_rel',
-      '%gprel',
-      '%gprel_hi',
-      '%gprel_lo',
-      '%half',
-      '%hi',
-      '%hi16',
-      '%higher',
-      '%highest',
-      '%literal',
-      '%lo',
-      '%lo16',
-      '%neg',
-      '%pc16',
-      '%pc21_s2',
-      '%pc26_s2',
-      '%pc32',
-      '%pcrel',
-      '%pcrel_hi',
-      '%pcrel_lo',
-      '%tls_got_hi',
-      '%tls_got_lo',
-      '%tlsgd',
-      '%tlsgd_hi',
-      '%tlsgd_lo',
-      '%tlsldm',
-      '%tprel',
-      '%tprel_add',
-      '%tprel_hi',
-      '%tprel_lo',
-      '%xgot',
-    )),
-
-    _expression_argument: $ => field('argument', $._expression),
 
     // Primitive data types
     octal: $ => /-?0o?[0-7]*/,
@@ -522,17 +456,14 @@ module.exports = grammar({
     ),
 
     // Support string concatenation
-    // Examples: `"a""b"`, `"a" "b"`
-    // Also supports macro variables: `"a"%foo`
-    _concat_string: $ => prec(10, choice(
-      $.string,
-      $.macro_variable,
-      seq($.string, $._concat_string),
-      seq($.macro_variable, $.string, $._concat_string),
-      seq($.string, $.macro_variable, $._concat_string),
-      seq($.string, $.macro_variable, $.string, $._concat_string),
-      seq($.string, $.string, $._concat_string),
-    )),
+    // Examples: `"a""b"`, `"a"`
+    string_concatenation: $ => seq(
+      choice($.string, $.macro_variable),
+      repeat1(seq(
+        $.string,
+        optional($. macro_variable),
+      )),
+    ),
 
     register: $ => token(seq(
       optional('$'),
@@ -599,20 +530,5 @@ module.exports = grammar({
     // Example: `1:`, `1 :`
     local_numeric_label: $ => token(prec(3, /[0-9][ \t]*:/)),
     local_numeric_label_reference: $ => token(/[0-9][fb]/),
-
-    // Examples: `main($s4)`, `value+4($s1)`, `($v1)`, `-0x10($a0)`
-    // Cannot match expression-like addresses: `main`, `main+2`
-    // We allow empty parenthesis, which would be semantically invalid.
-    // LSPs should check that there is a base.
-    address: $ => prec(1, seq(
-      optional(field('offset', $._expression)),
-      '(',
-      optional(choice(
-        field('base', $.register),
-        field('base', $.macro_variable),
-        field('base', $.symbol),
-      )),
-      ')',
-    )),
   },
 });

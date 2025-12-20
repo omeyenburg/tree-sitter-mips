@@ -8,9 +8,9 @@ foo $t0 $t1 $t2
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)
-      operand: (register)
-      operand: (register))))
+      (register)
+      (register)
+      (register))))
 
 ==========
 [instructions/operands] instruction with multiple comma-separated arguments
@@ -22,9 +22,9 @@ foo $t0,$t1,$t2
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register)
-      operand: (register)
-      operand: (register))))
+      (register)
+      (register)
+      (register))))
 
 ==========
 [instructions/operands] instruction with symbol
@@ -36,7 +36,7 @@ foo bar
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (symbol))))
+      (symbol))))
 
 ==========
 [instructions/operands] simple binary expression
@@ -48,7 +48,7 @@ foo bar+4
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (binary_expression
+      (binary_expression
         left: (symbol)
         operator: (additive_operator)
         right: (decimal)))))
@@ -63,11 +63,12 @@ foo (bar+4)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (parenthesized_expression
-        argument: (binary_expression
-          left: (symbol)
-          operator: (additive_operator)
-          right: (decimal))))))
+      (parenthesized_expression
+        arguments: (instruction_operands
+          (binary_expression
+            left: (symbol)
+            operator: (additive_operator)
+            right: (decimal)))))))
 
 ==========
 [instructions/operands] call expression
@@ -76,11 +77,11 @@ foo(bar, baz)
 ---
 
 (program
-  (instruction
-    mnemonic: (instruction_mnemonic)
+  (call_statement
+    name: (symbol)
     operands: (instruction_operands
-      operand: (symbol)
-      operand: (symbol))))
+      (symbol)
+      (symbol))))
 
 ==========
 [instructions/operands] instruction with string operand
@@ -93,7 +94,7 @@ foo "bar"
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (string))))
+      (string))))
 
 ==========
 [instructions/operands] instruction with string operand followed by instruction
@@ -106,6 +107,6 @@ baz
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (string)))
+      (string)))
   (instruction
     mnemonic: (instruction_mnemonic)))

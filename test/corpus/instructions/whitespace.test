@@ -8,8 +8,8 @@ foo 1,2
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (decimal)
+      (decimal))))
 
 ==========
 [instructions/whitespace] space-separated operands
@@ -21,8 +21,8 @@ foo 1 2
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (decimal)
+      (decimal))))
 
 ==========
 [instructions/whitespace] tab-separated operands
@@ -34,8 +34,8 @@ foo	1	2
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (decimal)
+      (decimal))))
 
 ==========
 [instructions/whitespace] comma separated operands with spaces
@@ -47,8 +47,8 @@ foo 1 , 2
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (decimal)
+      (decimal))))
 
 ==========
 [instructions/whitespace] comma separated operands with tabs
@@ -60,8 +60,8 @@ foo	1	,	2
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (decimal)
-      operand: (decimal))))
+      (decimal)
+      (decimal))))
 
 ==========
 [instructions/whitespace] space before opcode
@@ -113,7 +113,7 @@ foo $t0
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/whitespace] trailing tab after operands
@@ -125,7 +125,7 @@ foo $t0
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/whitespace] instruction without operands with semicolon
@@ -157,7 +157,7 @@ foo $t0;
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/whitespace] instruction with operands with space before semicolon
@@ -169,7 +169,7 @@ foo $t0 ;
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (register))))
+      (register))))
 
 ==========
 [instructions/whitespace] call expression with space before
@@ -181,8 +181,10 @@ foo (bar, baz)
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (symbol)
-      operand: (symbol))))
+      (parenthesized_expression
+        arguments: (instruction_operands
+          (symbol)
+          (symbol))))))
 
 ==========
 [instructions/whitespace] call expression with spaces around operands
@@ -194,8 +196,10 @@ foo ( bar, baz )
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (symbol)
-      operand: (symbol))))
+      (parenthesized_expression
+        arguments: (instruction_operands
+          (symbol)
+          (symbol))))))
 
 ==========
 [instructions/whitespace] instruction followed by indented label

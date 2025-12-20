@@ -177,7 +177,7 @@
   (directive
     mnemonic: (integer_mnemonic)
     operands: (directive_operands
-      operand: (macro_variable))))
+      (macro_variable))))
 
 ==========
 [directives/macro] float directive with macro variable
@@ -189,7 +189,7 @@
   (directive
     mnemonic: (float_mnemonic)
     operands: (directive_operands
-      operand: (macro_variable))))
+      (macro_variable))))
 
 ==========
 [directives/macro] string directive with macro variable
@@ -201,7 +201,7 @@
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (macro_variable))))
+      (macro_variable))))
 
 ==========
 [directives/macro] control directive followed by macro call with % prefix on next line
@@ -414,7 +414,7 @@ foo bar\baz
   (instruction
     mnemonic: (instruction_mnemonic)
     operands: (instruction_operands
-      operand: (macro_variable))))
+      (macro_variable))))
 
 ==========
 [directives/macro] macro variable starting inside of a string
@@ -426,5 +426,5 @@ foo bar\baz
   (directive
     mnemonic: (string_mnemonic)
     operands: (directive_operands
-      operand: (string
+      (string
         (string_macro_variable)))))
