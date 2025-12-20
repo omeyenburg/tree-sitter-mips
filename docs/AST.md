@@ -26,29 +26,28 @@ add t0, t1, t2
 
 ```scheme
 (instruction
-  opcode: (opcode)
-  operands: (operands
+  mnemonic: (instruction_mnemonic)
+  operands: (instruction_operands
     operand: (register)
     operand: (register)
     operand: (decimal)))
 ```
 
-### Opcode
+### Mnemonic
 Instruction mnemonic (e.g., `add`, `lw`, `beq`).
 
 ### Operands
 List of operands separated by commas or whitespace.
 
-Operand types: `(register)`, `(decimal)`, `(hexadecimal)`, `(octal)`, `(float)`, `(symbol)`, `(address)`, `(macro_variable)`, `(string)`, `(binary_expression)`, `(unary_expression)`, `(parenthesized_expression)`
+Operand types: `(register)`, `(decimal)`, `(hexadecimal)`, `(octal)`, `(float)`, `(symbol)`, `(address)`, `(macro_variable)`, `(string)`, `(binary_expression)`, `(unary_expression)`, `(parenthesized_expression)`, `(relocation_expression)`
 
 ---
 
 ## Directives
-Assembler directives that control assembly behavior.
+Assembler directives that control assembly behavior.  
+Split into two categories:
 
-### Directive Types
-
-#### Macro directive
+### Macro directive
 Macro mnemonic: `.macro`
 
 **Example:**
@@ -68,8 +67,14 @@ Macro mnemonic: `.macro`
       name: (macro_parameter_name))))
 ```
 
-#### Integer directive
-Integer data directives: `.byte`, `.half`, `.word`, `.dword`, `.long`, `.quad`, `.2byte`, `.4byte`, `.8byte`, `.int`, `.short`, `.hword`, `.comm`, `.lcomm`, `.align`, `.balign`, `.p2align`, `.sleb128`, `.uleb128`, `.dtprelword`, `.dtpreldword`, `.skip`, `.space`
+### Normal directive
+`integer_mnemonic`: `.byte`, `.half`, `.word`, `.dword`, `.long`, `.quad`, `.2byte`, `.4byte`, `.8byte`, `.int`, `.short`, `.hword`, `.comm`, `.lcomm`, `.align`, `.balign`, `.p2align`, `.sleb128`, `.uleb128`, `.dtprelword`, `.dtpreldword`, `.skip`, `.space`, `.zero`, `.null`, `.octa`
+
+`float_mnemonic`: `.float`, `.double`, `.single`
+
+`string_mnemonic`: `.ascii`, `.asciz`, `.asciiz`, `.string`, `.stringz`
+
+`control_mnemonic`: All other directives, like `.text`, `.data`, `.globl`, `.section`
 
 **Example:**
 ```asm
@@ -82,52 +87,6 @@ Integer data directives: `.byte`, `.half`, `.word`, `.dword`, `.long`, `.quad`, 
   operands: (integer_operands
     operand: (decimal)
     operand: (decimal)))
-```
-
-#### Float directive
-Floating-point data: `.float`, `.double`, `.single`
-
-**Example:**
-```asm
-.float 3.14, .2f
-```
-
-```scheme
-(directive
-  mnemonic: (float_mnemonic)
-  operands: (float_operands
-    operand: (float)
-    operand: (float)))
-```
-
-#### String directive
-String data: `.ascii`, `.asciz`, `.asciiz`, `.string`, `.stringz`
-
-**Example:**
-```asm
-.asciiz "Hello, World!\n"
-```
-
-```scheme
-(directive
-  mnemonic: (string_mnemonic)
-  operands: (string_operands
-    operand: (string)))
-```
-
-#### Control directive
-All other directives (e.g., `.text`, `.data`, `.globl`, `.section`)
-
-**Example:**
-```asm
-.global _start
-```
-
-```scheme
-(directive
-  mnemonic: (control_mnemonic)
-  operands: (control_operands
-    operand: (symbol)))
 ```
 
 ---

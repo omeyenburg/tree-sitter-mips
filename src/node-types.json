@@ -95,16 +95,6 @@
             "named": true
           }
         ]
-      },
-      "operands": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "_multiple_operands",
-            "named": true
-          }
-        ]
       }
     }
   },
@@ -1317,10 +1307,6 @@
   {
     "type": "=",
     "named": false
-  },
-  {
-    "type": "_multiple_operands",
-    "named": true
   },
   {
     "type": "additive_operator",

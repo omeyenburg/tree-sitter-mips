@@ -111,6 +111,8 @@ module.exports = grammar({
       $._directive,
     )),
 
+    // This allows macro without name, which would be semantically invalid.
+    // LSPs should check that there is a name.
     _macro_directive: $ => seq(
       field('mnemonic', $.macro_mnemonic),
       optional(seq(
@@ -167,7 +169,6 @@ module.exports = grammar({
       '.sleb128', '.uleb128',
       '.dtprelword', '.dtpreldword',
     ),
-
     float_mnemonic: $ => choice(
       '.float', '.double', '.single',
     ),
@@ -206,19 +207,6 @@ module.exports = grammar({
       $.elf_type_tag,
       $.option_flag,
     ),
-
-    // Support string concatenation
-    // Examples: `"a""b"`, `"a" "b"`
-    // Also supports macro variables: `"a"%foo`
-    _concat_string: $ => prec(10, choice(
-      $.string,
-      $.macro_variable,
-      seq($.string, $._concat_string),
-      seq($.macro_variable, $.string, $._concat_string),
-      seq($.string, $.macro_variable, $._concat_string),
-      seq($.string, $.macro_variable, $.string, $._concat_string),
-      seq($.string, $.string, $._concat_string),
-    )),
 
     // Instruction consists of an mnemonic and optionally a list of operands
     instruction: $ => seq(
@@ -444,25 +432,55 @@ module.exports = grammar({
     relocation_type: $ => token(choice(
       '%abs64',
       '%call16',
+      '%call_hi',
+      '%call_lo',
+      '%callhi16',
+      '%calllo16',
       '%dtprel',
+      '%dtprel_hi',
+      '%dtprel_lo',
       '%got',
+      '%got16',
+      '%got_disp',
       '%got_hi',
       '%got_lo',
+      '%got_ofst',
+      '%got_page',
+      '%gothi16',
+      '%gotlo16',
+      '%gottprel',
+      '%gp_disp',
+      '%gp_rel',
       '%gprel',
+      '%gprel_hi',
+      '%gprel_lo',
+      '%half',
       '%hi',
+      '%hi16',
+      '%higher',
+      '%highest',
+      '%literal',
       '%lo',
+      '%lo16',
+      '%neg',
       '%pc16',
+      '%pc21_s2',
+      '%pc26_s2',
       '%pc32',
+      '%pcrel',
       '%pcrel_hi',
       '%pcrel_lo',
       '%tls_got_hi',
       '%tls_got_lo',
+      '%tlsgd',
       '%tlsgd_hi',
       '%tlsgd_lo',
+      '%tlsldm',
       '%tprel',
       '%tprel_add',
       '%tprel_hi',
       '%tprel_lo',
+      '%xgot',
     )),
 
     _expression_argument: $ => field('argument', $._expression),
@@ -502,6 +520,19 @@ module.exports = grammar({
         ),
       ),
     ),
+
+    // Support string concatenation
+    // Examples: `"a""b"`, `"a" "b"`
+    // Also supports macro variables: `"a"%foo`
+    _concat_string: $ => prec(10, choice(
+      $.string,
+      $.macro_variable,
+      seq($.string, $._concat_string),
+      seq($.macro_variable, $.string, $._concat_string),
+      seq($.string, $.macro_variable, $._concat_string),
+      seq($.string, $.macro_variable, $.string, $._concat_string),
+      seq($.string, $.string, $._concat_string),
+    )),
 
     register: $ => token(seq(
       optional('$'),
@@ -570,31 +601,18 @@ module.exports = grammar({
     local_numeric_label_reference: $ => token(/[0-9][fb]/),
 
     // Examples: `main($s4)`, `value+4($s1)`, `($v1)`, `-0x10($a0)`
-    // Cannot match expression-like addresses: main, main+2
-    // This also matches macro calls in instructions.
-    // Example: `foo bar($t0, 1, 5)`
+    // Cannot match expression-like addresses: `main`, `main+2`
+    // We allow empty parenthesis, which would be semantically invalid.
+    // LSPs should check that there is a base.
     address: $ => prec(1, seq(
       optional(field('offset', $._expression)),
       '(',
-      choice(
+      optional(choice(
         field('base', $.register),
         field('base', $.macro_variable),
         field('base', $.symbol),
-        field('operands', alias('operands', $._multiple_operands)), // Some sort of macro call
-      ),
+      )),
       ')',
     )),
-    _multiple_operands: $ => seq(
-      $._instruction_operand,
-      repeat1(seq(
-        choice(
-          ',',
-          $._operand_separator,
-          $._multiline_operand_separator_with_comment_node,
-        ),
-        $._instruction_operand,
-      )),
-      optional($._operand_separator),
-    ),
   },
 });
