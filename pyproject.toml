@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-mips"
 description = "A syntax parser for the MIPS Instruction Set Architecture."
-version = "0.3.0"
+version = "0.3.1"
 keywords = ["incremental", "parsing", "tree-sitter", "mips"]
 classifiers = [
   "Intended Audience :: Developers",

@@ -6,7 +6,7 @@ A [tree-sitter](https://github.com/tree-sitter/tree-sitter) parser for the MIPS 
 [![crates](https://img.shields.io/crates/v/tree-sitter-mips?logo=rust)](https://crates.io/crates/tree-sitter-mips)
 [![npm](https://img.shields.io/npm/v/tree-sitter-mips?logo=npm)](https://www.npmjs.com/package/tree-sitter-mips)
 [![pypi](https://img.shields.io/pypi/v/tree-sitter-mips?logo=pypi&logoColor=white)](https://pypi.org/project/tree-sitter-mips)
-[![go](https://img.shields.io/badge/go-v0.3.0-fe7d37?logo=go&logoColor=white)](https://pkg.go.dev/github.com/omeyenburg/tree-sitter-mips)
+[![go](https://img.shields.io/badge/go-v0.3.1-fe7d37?logo=go&logoColor=white)](https://pkg.go.dev/github.com/omeyenburg/tree-sitter-mips)
 
 ![Preview: syntax highlighting in NeoVim](assets/mips.png)
 
