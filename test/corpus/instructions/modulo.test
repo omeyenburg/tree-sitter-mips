@@ -10,28 +10,28 @@ foo 4 %2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (macro_variable))))
 
@@ -46,7 +46,7 @@ foo %1 % %2 % %3
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -56,7 +56,7 @@ foo %1 % %2 % %3
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -66,7 +66,7 @@ foo %1 % %2 % %3
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (binary_expression
           left: (macro_variable)
@@ -84,7 +84,7 @@ foo 100 % 20 % 5 % 2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (binary_expression
           left: (binary_expression
@@ -106,22 +106,22 @@ foo (10 % 5) % 2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (parenthesized_expression
-          arguments: (instruction_operands
+          arguments: (operands
             (binary_expression
               left: (decimal)
               operator: (multiplicative_operator)
               right: (decimal)))))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (parenthesized_expression
-          arguments: (instruction_operands
+          arguments: (operands
             (binary_expression
               left: (decimal)
               operator: (multiplicative_operator)
@@ -140,7 +140,7 @@ foo 10 % 3 / 2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -153,7 +153,7 @@ foo 10 % 3 / 2
           right: (decimal)))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -163,7 +163,7 @@ foo 10 % 3 / 2
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (binary_expression
           left: (decimal)
@@ -181,9 +181,9 @@ foo (4 % 2)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
-        arguments: (instruction_operands
+        arguments: (operands
           (binary_expression
             left: (decimal)
             operator: (multiplicative_operator)
@@ -203,42 +203,42 @@ foo 1 % %2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (macro_variable))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
         right: (macro_variable))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (macro_variable)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (macro_variable)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (macro_variable)
         operator: (multiplicative_operator)
         right: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (multiplicative_operator)
@@ -255,17 +255,17 @@ foo %1 %2%3
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable)))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable)))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (binary_expression
         left: (macro_variable)

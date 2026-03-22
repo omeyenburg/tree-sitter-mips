@@ -7,7 +7,7 @@ foo 3.14
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -19,7 +19,7 @@ foo 3.14f
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -31,7 +31,7 @@ foo -3.14
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -43,7 +43,7 @@ foo .14
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -55,7 +55,7 @@ foo .14f
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -67,7 +67,7 @@ foo 3.
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -79,7 +79,7 @@ foo 3.f
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -91,7 +91,7 @@ foo 1e10
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -103,7 +103,7 @@ foo 1e10f
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -115,7 +115,7 @@ foo 1E-10
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -127,7 +127,7 @@ foo 1E-10f
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -139,7 +139,7 @@ foo -3.5e+5
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -151,7 +151,7 @@ foo -3.5e+5f
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -163,7 +163,7 @@ foo .5e2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))
 
 ==========
@@ -175,5 +175,5 @@ foo .5e2f
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (float))))

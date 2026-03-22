@@ -1,16 +1,17 @@
 .text
 .macro LOAD reg, val
     li \reg, \val
-.end_macro
+.endm
 
 main: # Comment
-    LOAD $t0, 0x42
-    la   $a0, msg
-    l.s  $f0, pi
-    jal  func / 12
+    LOAD t0, 0x42
+    la   a0, msg
+    flw  ft0, pi(t0)
+    jal  ra, func
+    nop
 
-func:   jr $ra
+func:   jalr x0, ra, 0
 
 .data
-main:   .asciiz "Hello World!"
-pi:     .float  3.14f
+msg:    .asciz "Hello World!"
+pi:     .float 3.14

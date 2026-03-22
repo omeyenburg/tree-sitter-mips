@@ -7,7 +7,7 @@ foo %bar %baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -20,7 +20,7 @@ foo %bar	%baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -33,7 +33,7 @@ foo %bar,%baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -46,7 +46,7 @@ foo \bar \baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -59,7 +59,7 @@ foo \bar	\baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -72,7 +72,7 @@ foo \bar,\baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -85,7 +85,7 @@ foo $bar $baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -98,7 +98,7 @@ foo $bar	$baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -111,7 +111,7 @@ foo $bar,$baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable))))
 
@@ -124,7 +124,7 @@ foo $\ $% \$ \% %$ $\
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable)
       (macro_variable)
       (macro_variable)
@@ -141,10 +141,10 @@ foo 4(%x)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         head: (decimal)
-        arguments: (instruction_operands
+        arguments: (operands
           (macro_variable))))))
 
 ==========
@@ -156,10 +156,10 @@ foo 4(\x)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         head: (decimal)
-        arguments: (instruction_operands
+        arguments: (operands
           (macro_variable))))))
 
 ==========
@@ -171,10 +171,10 @@ foo 4($x)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         head: (decimal)
-        arguments: (instruction_operands
+        arguments: (operands
           (macro_variable))))))
 
 ==========
@@ -186,7 +186,7 @@ foo("bar")
 (program
   (call_statement
     name: (symbol)
-    operands: (instruction_operands
+    operands: (operands
       (string))))
 
 ==========
@@ -198,7 +198,7 @@ foo(1/**/2)
 (program
   (call_statement
     name: (symbol)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (comment)
       (decimal))))
@@ -213,10 +213,10 @@ foo/**/(/**/1/**/,/**/2/**/)
   (instruction
     mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         (comment)
-        arguments: (instruction_operands
+        arguments: (operands
           (decimal)
           (comment)
           (comment)

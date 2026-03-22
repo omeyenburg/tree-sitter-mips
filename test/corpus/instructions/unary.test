@@ -7,7 +7,7 @@ foo -10
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal))))
 
 ==========
@@ -19,7 +19,7 @@ foo -bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (unary_minus_operator)
         argument: (symbol)))))
@@ -33,7 +33,7 @@ foo 1 -1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))
 
@@ -46,12 +46,12 @@ foo 1 -(-1)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (unary_minus_operator)
         argument: (parenthesized_expression
-          arguments: (instruction_operands
+          arguments: (operands
             (decimal)))))))
 
 ==========
@@ -63,7 +63,7 @@ foo 1 -- 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (decimal)
         operator: (additive_operator)
@@ -82,19 +82,19 @@ foo ~bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (symbol)))))
@@ -110,19 +110,19 @@ foo !bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (logical_not_operator)
         argument: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (logical_not_operator)
         argument: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (logical_not_operator)
         argument: (symbol)))))
@@ -138,14 +138,14 @@ foo 1 !!1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (unary_minus_operator)
         argument: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (bitwise_not_operator)
@@ -154,7 +154,7 @@ foo 1 !!1
           argument: (decimal)))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (logical_not_operator)
@@ -173,32 +173,32 @@ foo 1 !(!1)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (unary_minus_operator)
         argument: (parenthesized_expression
-          arguments: (instruction_operands
+          arguments: (operands
             (decimal))))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (parenthesized_expression
-          arguments: (instruction_operands
+          arguments: (operands
             (unary_expression
               operator: (bitwise_not_operator)
               argument: (decimal)))))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (logical_not_operator)
         argument: (parenthesized_expression
-          arguments: (instruction_operands
+          arguments: (operands
             (unary_expression
               operator: (logical_not_operator)
               argument: (decimal))))))))
@@ -213,13 +213,13 @@ foo ~$s0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (unary_minus_operator)
         argument: (register))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (register)))))
@@ -235,19 +235,19 @@ foo !%flag
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (unary_minus_operator)
         argument: (macro_variable))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (macro_variable))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (logical_not_operator)
         argument: (macro_variable)))))
@@ -262,21 +262,21 @@ foo ~%lo(symbol)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (unary_minus_operator)
         argument: (parenthesized_expression
           head: (macro_variable)
-          arguments: (instruction_operands
+          arguments: (operands
             (symbol))))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (parenthesized_expression
           head: (macro_variable)
-          arguments: (instruction_operands
+          arguments: (operands
             (symbol)))))))
 
 ==========
@@ -290,19 +290,19 @@ foo 1 !1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal)))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (bitwise_not_operator)
         argument: (decimal))))
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (unary_expression
         operator: (logical_not_operator)

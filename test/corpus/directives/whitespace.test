@@ -358,7 +358,7 @@ _label:
     (control_mnemonic)
     (directive_operands
       (symbol)))
-  (global_label))
+  (label))
 
 ==========
 [directives/whitespace] directive followed by numeric label
@@ -372,7 +372,7 @@ _label:
     (integer_mnemonic)
     (directive_operands
       (decimal)))
-  (global_numeric_label))
+  (label))
 
 ==========
 [directives/whitespace] directive followed by another directive
@@ -418,7 +418,7 @@ main:
     (integer_mnemonic)
     (directive_operands
       (decimal)))
-  (global_label))
+  (label))
 
 ==========
 [directives/whitespace] directive followed by directive with blank line

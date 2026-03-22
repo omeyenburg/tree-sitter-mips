@@ -7,7 +7,7 @@ foo 100
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal))))
 
 ==========
@@ -19,7 +19,7 @@ foo -100
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal))))
 
 ==========
@@ -31,7 +31,7 @@ foo 012
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (octal))))
 
 ==========
@@ -43,7 +43,7 @@ foo 089
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal))))
 
 ==========
@@ -55,7 +55,7 @@ foo 0x0314
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (hexadecimal))))
 
 ==========
@@ -67,7 +67,7 @@ foo 0b11
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary))))
 
 ==========
@@ -79,7 +79,7 @@ foo -0x0123456789ABCDEFabcdef
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (hexadecimal))))
 
 ==========
@@ -91,7 +91,7 @@ foo 'A'
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (char))))
 
 ==========
@@ -103,7 +103,7 @@ foo '\n'
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (char))))
 
 ==========
@@ -115,7 +115,7 @@ foo '\''
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (char))))
 
 ==========
@@ -127,6 +127,6 @@ foo 1 -1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))

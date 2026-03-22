@@ -1,0 +1,132 @@
+==========
+[labels/simple] basic label
+==========
+test:
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] space before colon
+==========
+foo :
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] chained labels without space
+==========
+test:test:
+---
+
+(program
+  (label)
+  (label))
+
+==========
+[labels/simple] chained labels with space
+==========
+test: test:
+---
+
+(program
+  (label)
+  (label))
+
+==========
+[labels/simple] chained labels with tab
+==========
+test:	test:
+---
+
+(program
+  (label)
+  (label))
+
+==========
+[labels/simple] leading space
+==========
+  test:
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] leading tab
+==========
+	test:
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] trailing space
+==========
+test:  
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] trailing tab
+==========
+test:	
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] label with semicolon
+==========
+test:;
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] space before semicolon
+==========
+test: ;
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] local label
+==========
+.L123:
+---
+
+(program
+  (label))
+
+==========
+[labels/simple] chained local labels
+==========
+.L0:.L1:
+---
+
+(program
+  (label)
+  (label))
+
+==========
+[labels/simple] local label reference
+==========
+foo .L123
+---
+
+(program
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (symbol))))

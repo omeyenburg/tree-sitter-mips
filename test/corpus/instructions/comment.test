@@ -73,7 +73,7 @@ foo $t0# bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)))
   (comment))
 
@@ -86,7 +86,7 @@ foo $t0// bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)))
   (comment))
 
@@ -99,7 +99,7 @@ foo $t0/* bar */
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)))
   (comment))
 
@@ -112,7 +112,7 @@ foo $t0 # bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)))
   (comment))
 
@@ -125,7 +125,7 @@ foo $t0 // bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)))
   (comment))
 
@@ -138,7 +138,7 @@ foo $t0 /* bar */
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)))
   (comment))
 
@@ -151,7 +151,7 @@ foo $t0/* bar */,$t0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (comment)
       (register))))
@@ -165,7 +165,7 @@ foo $t0/* bar */ + $t0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (register)
         (comment)
@@ -182,7 +182,7 @@ foo/* bar */$t0
   (instruction
     mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -195,7 +195,7 @@ foo /* bar */$t0
   (instruction
     mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -208,7 +208,7 @@ foo/* bar */ $t0
   (instruction
     mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -221,9 +221,9 @@ foo/* bar */(1, 2)
   (instruction
     mnemonic: (instruction_mnemonic)
     (comment)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
-        arguments: (instruction_operands
+        arguments: (operands
           (decimal)
           (decimal))))))
 
@@ -237,7 +237,7 @@ foo(/* bar */1, 2)
   (call_statement
     name: (symbol)
     (comment)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))
 
@@ -250,7 +250,7 @@ foo(1, 2/* baz */)
 (program
   (call_statement
     name: (symbol)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))
     (comment)))
@@ -265,7 +265,7 @@ baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)))
   (comment)
   (instruction
@@ -281,12 +281,12 @@ baz 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)))
   (comment)
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal))))
 
 ==========
@@ -299,7 +299,7 @@ foo 1 # bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (comment)
       (decimal))))
@@ -315,7 +315,7 @@ foo 1 # bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)))
   (comment))
 
@@ -329,7 +329,7 @@ foo 1 # bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)))
   (comment)
   (directive
@@ -345,7 +345,7 @@ foo 1 # bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)))
   (comment)
   (directive

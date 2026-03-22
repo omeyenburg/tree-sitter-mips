@@ -15,20 +15,15 @@
 
 ;; Labels & symbols
 [
+  (label)
   (macro_label)
-  (global_label)
-  (local_label)
-  (local_label_reference)
-  (global_numeric_label)
-  (local_numeric_label)
-  (local_numeric_label_reference)
+  (numeric_label)
   (symbol)
 ] @label
 
 ;; Instructions
 (instruction_mnemonic) @function
 (register) @parameter
-; (relocation_type) @type
 
 ;; Macros
 (macro_name) @label

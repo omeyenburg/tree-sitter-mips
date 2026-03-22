@@ -413,7 +413,7 @@ foo bar\baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (macro_variable))))
 
 ==========

@@ -8,7 +8,7 @@ add $t0, 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -25,7 +25,7 @@ add $t0, 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -44,7 +44,7 @@ add $t0, 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)

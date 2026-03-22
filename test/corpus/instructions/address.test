@@ -7,9 +7,9 @@ foo ($s0)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
-        arguments: (instruction_operands
+        arguments: (operands
           (register))))))
 
 ==========
@@ -21,10 +21,10 @@ foo -100($s0)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         head: (decimal)
-        arguments: (instruction_operands
+        arguments: (operands
           (register))))))
 
 ==========
@@ -36,10 +36,10 @@ foo bar($s0)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         head: (symbol)
-        arguments: (instruction_operands
+        arguments: (operands
           (register))))))
 
 ==========
@@ -51,13 +51,13 @@ foo bar+100($s0)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         head: (binary_expression
           left: (symbol)
           operator: (additive_operator)
           right: (decimal))
-        arguments: (instruction_operands
+        arguments: (operands
           (register))))))
 
 ==========
@@ -69,13 +69,13 @@ foo (bar+0x123)($s0)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
         head: (parenthesized_expression
-          arguments: (instruction_operands
+          arguments: (operands
             (binary_expression
               left: (symbol)
               operator: (additive_operator)
               right: (hexadecimal))))
-        arguments: (instruction_operands
+        arguments: (operands
           (register))))))

@@ -7,7 +7,7 @@ foo 1,2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))
 
@@ -20,7 +20,7 @@ foo 1 2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))
 
@@ -33,7 +33,7 @@ foo	1	2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))
 
@@ -46,7 +46,7 @@ foo 1 , 2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))
 
@@ -59,7 +59,7 @@ foo	1	,	2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (decimal)
       (decimal))))
 
@@ -112,7 +112,7 @@ foo $t0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -124,7 +124,7 @@ foo $t0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -156,7 +156,7 @@ foo $t0;
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -168,7 +168,7 @@ foo $t0 ;
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -180,9 +180,9 @@ foo (bar, baz)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
-        arguments: (instruction_operands
+        arguments: (operands
           (symbol)
           (symbol))))))
 
@@ -195,9 +195,9 @@ foo ( bar, baz )
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
-        arguments: (instruction_operands
+        arguments: (operands
           (symbol)
           (symbol))))))
 
@@ -211,7 +211,7 @@ foo
 (program
   (instruction
     (instruction_mnemonic))
-  (global_label))
+  (label))
 
 ==========
 [instructions/whitespace] instruction followed by indented instruction

@@ -207,12 +207,12 @@ module.exports = grammar({
       optional(choice(
         seq(
           choice($._whitespace, $._block_comment),
-          optional(field('operands', $.instruction_operands)),
+          optional(field('operands', $.operands)),
         ),
       )),
     ),
     instruction_mnemonic: $ => token(/[a-zA-Z_][a-zA-Z0-9_.]*/),
-    instruction_operands: $ => seq(
+    operands: $ => seq(
       $._expression,
       repeat(seq(
         choice(
@@ -236,7 +236,7 @@ module.exports = grammar({
       optional(field('head', $._expression)),
       '(',
       optional($._block_comment),
-      optional(field('arguments', $.instruction_operands)),
+      optional(field('arguments', $.operands)),
       ')',
     )),
 
@@ -248,7 +248,7 @@ module.exports = grammar({
       )),
       '(',
       optional($._block_comment),
-      optional(field('operands', $.instruction_operands)),
+      optional(field('operands', $.operands)),
       ')',
     ),
 
@@ -391,9 +391,8 @@ module.exports = grammar({
       $.parenthesized_expression,
       $.macro_variable,
       $.register,
-      $.local_label_reference,
       $.symbol,
-      $.local_numeric_label_reference,
+      $.numeric_label_reference,
       $.char,
       $.string_concatenation,
       $.string,
@@ -456,12 +455,12 @@ module.exports = grammar({
     ),
 
     // Support string concatenation
-    // Examples: `"a""b"`, `"a"`
+    // Examples: `"a""b"`
     string_concatenation: $ => seq(
       choice($.string, $.macro_variable),
       repeat1(seq(
         $.string,
-        optional($. macro_variable),
+        optional($.macro_variable),
       )),
     ),
 
@@ -499,36 +498,29 @@ module.exports = grammar({
     string_macro_variable: $ => token(/\\[0-9a-zA-Z_$%]+(\\\(\))?/),
 
     macro_name: $ => token(/[a-zA-Z_][a-zA-Z0-9_$]*/),
-    macro_parameter: $ => field('parameter', prec.right(seq(
+    macro_parameter: $ => prec.right(seq(
       field('name', $.macro_parameter_name),
       optional(field('qualifier', $.macro_parameter_qualifier)),
-      optional(field('value', seq('=', $._expression))),
-    ))),
+      optional(seq('=', field('value', $._expression))),
+    )),
     macro_parameter_name: $ => token(/[%$\\]?[0-9a-zA-Z_$%\\]+/),
     macro_parameter_qualifier: $ => token(':req'),
 
+    symbol: $ => prec(-1, /[a-zA-Z_.][a-zA-Z0-9_.$@]*/),
+
     _label: $ => seq(
-      choice($.macro_label, $.global_label, $.local_label, $.global_numeric_label, $.local_numeric_label),
+      choice($.label, $.macro_label, $.numeric_label),
       optional($._whitespace),
     ),
+
+    // Example: `main:`, `main :`
+    label: $ => token(prec(2, /[a-zA-Z0-9_.][a-zA-Z0-9_.$]*[ \t]*:/)),
 
     // Example: `\foo:`, `\foo\()_bar:`, `\foo :`
     macro_label: $ => token(/[%$\\][0-9a-zA-Z_$\\]+(\\\(\)[0-9a-zA-Z_%$]*)?[ \t]*:/),
 
-    // Example: `.L122:`, `.Loop_1:`, `.L122 :`
-    local_label: $ => token(prec(3, /\.L[a-zA-Z0-9_$]*[ \t]*:/)),
-    local_label_reference: $ => prec(1, /\.L[a-zA-Z0-9_$]*/),
-
-    // Example: `main:`, `main :`
-    global_label: $ => token(prec(2, /[a-zA-Z_.][a-zA-Z0-9_.$]*[ \t]*:/)),
-    symbol: $ => prec(-1, /[a-zA-Z_.][a-zA-Z0-9_.$@]*/),
-
-    // Example: `123:`, `123 :`
-    // Referenced by number literal
-    global_numeric_label: $ => token(prec(2, /[1-9][0-9]+[ \t]*:/)),
-
     // Example: `1:`, `1 :`
-    local_numeric_label: $ => token(prec(3, /[0-9][ \t]*:/)),
-    local_numeric_label_reference: $ => token(/[0-9][fb]/),
+    numeric_label: $ => token(prec(3, /[0-9][ \t]*:/)),
+    numeric_label_reference: $ => token(/[0-9][fb]/),
   },
 });

@@ -7,7 +7,7 @@ add $t0, 1 +2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -23,7 +23,7 @@ sub $t0, 5 - 3
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -39,7 +39,7 @@ mul $t0, 4 *3
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -55,7 +55,7 @@ div $t0, 10 % 3
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -71,7 +71,7 @@ and $t0, 15 &7
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -87,7 +87,7 @@ or $t0, 8 |4
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -103,7 +103,7 @@ sll $t0, 1 <<3
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -119,7 +119,7 @@ add $t0, 2+3*4
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -138,7 +138,7 @@ add $t0, 1+2+3
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (binary_expression
@@ -157,7 +157,7 @@ mul $t0, 2*3%4
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (binary_expression
@@ -176,7 +176,7 @@ add $t0, 5 +3 *2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -195,7 +195,7 @@ li $t0, start +offset
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (symbol)
@@ -212,7 +212,7 @@ add $t0, 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -229,7 +229,7 @@ add $t0, 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)
@@ -248,7 +248,7 @@ add $t0, 1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (binary_expression
         left: (decimal)

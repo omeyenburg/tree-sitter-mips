@@ -7,7 +7,7 @@ foo $t0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -19,7 +19,7 @@ foo $0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -31,7 +31,7 @@ foo $31
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -43,7 +43,7 @@ foo $gp
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -55,7 +55,7 @@ foo $zero
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -67,7 +67,7 @@ foo $f0
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -79,7 +79,7 @@ foo $f31
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -91,7 +91,7 @@ foo sp
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))
 
 ==========
@@ -103,7 +103,7 @@ foo space
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (symbol))))
 
 ==========
@@ -115,5 +115,5 @@ foo x1
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register))))

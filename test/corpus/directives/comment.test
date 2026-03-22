@@ -640,7 +640,7 @@ baz:
     (directive_operands
       (symbol)))
   (comment)
-  (global_label))
+  (label))
 
 ==========
 [directives/comment] two comments on line between two operands

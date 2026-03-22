@@ -27,10 +27,10 @@ add t0, t1, t2
 ```scheme
 (instruction
   mnemonic: (instruction_mnemonic)
-  operands: (instruction_operands
-    operand: (register)
-    operand: (register)
-    operand: (decimal)))
+  operands: (operands
+    (register)
+    (register)
+    (decimal)))
 ```
 
 ### Mnemonic
@@ -39,7 +39,7 @@ Instruction mnemonic (e.g., `add`, `lw`, `beq`).
 ### Operands
 List of operands separated by commas or whitespace.
 
-Operand types: `(register)`, `(decimal)`, `(hexadecimal)`, `(octal)`, `(float)`, `(symbol)`, `(address)`, `(macro_variable)`, `(string)`, `(binary_expression)`, `(unary_expression)`, `(parenthesized_expression)`, `(relocation_expression)`
+Operand types: `(register)`, `(decimal)`, `(hexadecimal)`, `(octal)`, `(float)`, `(char)`, `(symbol)`, `(macro_variable)`, `(string)`, `(binary_expression)`, `(unary_expression)`, `(parenthesized_expression)`
 
 ---
 
@@ -84,17 +84,17 @@ Macro mnemonic: `.macro`
 ```scheme
 (directive
   mnemonic: (integer_mnemonic)
-  operands: (integer_operands
-    operand: (decimal)
-    operand: (decimal)))
+  operands: (directive_operands
+    (decimal)
+    (decimal)))
 ```
 
 ---
 
 ## Labels
 
-### Global label
-Standard global labels.
+### Label
+Simple labels.
 
 **Pattern:** `[a-zA-Z_.][a-zA-Z0-9_.$]*:`
 
@@ -104,38 +104,10 @@ _start:
 ```
 
 ```scheme
-(global_label)
+(label)
 ```
 
-### Local label
-Local labels starting with dot.
-
-**Pattern:** `\.[A-Z][a-zA-Z0-9_]*:`
-
-**Example:**
-```asm
-.L1:
-```
-
-```scheme
-(local_label)
-```
-
-### Global numeric label
-Multi-digit numeric labels.
-
-**Pattern:** `[1-9][0-9]+:`
-
-**Example:**
-```asm
-10:
-```
-
-```scheme
-(global_numeric_label)
-```
-
-### Local numeric label
+### Numeric label
 Single-digit numeric labels.
 
 **Pattern:** `[0-9]:`
@@ -146,10 +118,10 @@ Single-digit numeric labels.
 ```
 
 ```scheme
-(local_numeric_label)
+(numeric_label)
 ```
 
-### Local numeric label reference
+### Numeric label reference
 Reference to numeric labels.
 
 **Examples:**
@@ -157,7 +129,7 @@ Reference to numeric labels.
 - `1f` - forward reference (next label 1:)
 
 ```scheme
-(local_numeric_label_reference)
+(numeric_label_reference)
 ```
 
 ---
@@ -207,13 +179,17 @@ Unary operations.
 ```
 
 ### Parenthesized expression
-Grouped expressions for precedence.
+A general node capturing basic parenthesized math expressions, relocation expressions and addresses.
 
-**Example:** `(1 + 2) * 3`
+**Examples:**
+- `(1 + 2) * 3`    - Simple expression
+- `%hi($t0)`       - Relocation expression
+- `offset($s0)`    - Address
+- `label + 1($s0)` - Address with expression for offset
 
 ```scheme
 (parenthesized_expression
-  argument: (binary_expression ...))
+  arguments: (operands ...))
 ```
 
 ---
@@ -255,6 +231,19 @@ Floating-point literals: `1.2`, `1e2`
 (string)
 ```
 
+Multiple consecutive strings will be parsed as `string_concatenation`
+
+**Example**:
+```asm
+.string "foo" "bar"
+```
+
+```scheme
+(string_concatenation
+  (string)
+  (string))
+```
+
 ### Character literal
 
 ```scheme
@@ -272,7 +261,6 @@ Identifiers and label references.
 Macro variables usually start with `\`, `%` or `$`.
 
 **Examples**:
-
 ```asm
 jal \var
 jal %var
@@ -304,21 +292,6 @@ Macro variables can be used inside of strings:
 ```scheme
 (string
   (string_macro_variable))
-```
-
-### Address
-Memory address with optional offset expression and base register.
-
-**Examples:**
-- `0($sp)` - Numeric offset
-- `label($gp)` - Symbol offset
-- `4 + 8($sp)` - Expression offset (e.g., `4 + 8`, `8 % 4 + 2`)
-- `%offset($s0)` - Macro offset
-
-```scheme
-(address
-  offset: (binary_expression ...)  ; Can be expression or literal
-  base: (register))
 ```
 
 ### Register
@@ -358,22 +331,19 @@ While some assemblers do use it for comments, many major assemblers and simulato
 
 ## Field Reference
 
-| Field            | Used In                                                                 | Description                 |
-| ---------------- | ----------------------------------------------------------------------- | --------------------------- |
-| `opcode`         | `instruction`                                                           | Instruction mnemonic        |
-| `operands`       | `instruction`, `directive`                                              | Operand list                |
-| `operand`        | `instruction`, `directive` (operands)                                   | Operand in operand list     |
-| `left`, `right`  | `binary_expression`                                                     | Binary operands             |
-| `operator`       | `binary_expression`, `unary_expression`                                 | Operator token              |
-| `argument`       | `unary_expression`, `parenthesized_expression`, `relocation_expression` | Single operand              |
-| `base`, `offset` | `address`                                                               | Address components          |
-| `type`           | `relocation_expression`                                                 | Relocation type             |
-| `mnemonic`       | `directive`                                                             | Directive type              |
-| `name`           | `directive`                                                             | Macro or parameter name     |
-| `parameters`     | `directive` (macro directive)                                           | Macro parameters            |
-| `parameter`      | `directive` (macro directive parameters)                                | Macro parameter             |
-| `qualifier`      | `directive` (macro directive parameter)                                 | Qualifier for parameter     |
-| `value`          | `directive` (macro directive parameter)                                 | Default value for parameter |
+| Field            | Used In                                  | Description                   |
+| ---------------- | ---------------------------------------- | ----------------------------- |
+| `mnemonic`       | `instruction`, `directive`               | Name of instruction/directive |
+| `operands`       | `instruction`, `directive`               | Operand list                  |
+| `left`, `right`  | `binary_expression`                      | Binary operands               |
+| `operator`       | `binary_expression`, `unary_expression`  | Operator token                |
+| `argument`       | `unary_expression`                       | Single operand                |
+| `arguments`      | `parenthesized_expression`               | One or more arguments         |
+| `name`           | `directive`                              | Macro or parameter name       |
+| `parameters`     | `directive` (macro directive)            | Macro parameters              |
+| `parameter`      | `directive` (macro directive parameters) | Macro parameter               |
+| `qualifier`      | `directive` (macro directive parameter)  | Qualifier for parameter       |
+| `value`          | `directive` (macro directive parameter)  | Default value for parameter   |
 
 ---
 
@@ -396,4 +366,88 @@ main:
 1:  bne $t0, $zero, 1b      # Branch loop
     li $v0, 10
     syscall
+```
+
+Output tree:
+
+```scheme
+(program
+  (directive
+    mnemonic: (control_mnemonic))
+  (label)
+  (directive
+    mnemonic: (integer_mnemonic)
+    operands: (directive_operands
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)
+      (decimal)))
+  (directive
+    mnemonic: (control_mnemonic))
+  (directive
+    mnemonic: (control_mnemonic)
+    operands: (directive_operands
+      (symbol)))
+  (label)
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (register)
+      (decimal)))
+  (comment)
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (register)
+      (register)
+      (register)))
+  (comment)
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (register)
+      (register)
+      (binary_expression
+        left: (decimal)
+        operator: (additive_operator)
+        right: (decimal))))
+  (comment)
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (register)
+      (parenthesized_expression
+        head: (binary_expression
+          left: (decimal)
+          operator: (additive_operator)
+          right: (decimal))
+        arguments: (operands
+          (register)))))
+  (comment)
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (register)
+      (register)
+      (binary_expression
+        left: (decimal)
+        operator: (multiplicative_operator)
+        right: (decimal))))
+  (comment)
+  (numeric_label)
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (register)
+      (register)
+      (numeric_label_reference)))
+  (comment)
+  (instruction
+    mnemonic: (instruction_mnemonic)
+    operands: (operands
+      (register)
+      (decimal)))
+  (instruction
+    mnemonic: (instruction_mnemonic)))
 ```

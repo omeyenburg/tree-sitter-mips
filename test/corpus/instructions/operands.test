@@ -7,7 +7,7 @@ foo $t0 $t1 $t2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (register)
       (register))))
@@ -21,7 +21,7 @@ foo $t0,$t1,$t2
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (register)
       (register)
       (register))))
@@ -35,7 +35,7 @@ foo bar
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (symbol))))
 
 ==========
@@ -47,7 +47,7 @@ foo bar+4
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (binary_expression
         left: (symbol)
         operator: (additive_operator)
@@ -62,9 +62,9 @@ foo (bar+4)
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (parenthesized_expression
-        arguments: (instruction_operands
+        arguments: (operands
           (binary_expression
             left: (symbol)
             operator: (additive_operator)
@@ -79,7 +79,7 @@ foo(bar, baz)
 (program
   (call_statement
     name: (symbol)
-    operands: (instruction_operands
+    operands: (operands
       (symbol)
       (symbol))))
 
@@ -93,7 +93,7 @@ foo "bar"
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (string))))
 
 ==========
@@ -106,7 +106,7 @@ baz
 (program
   (instruction
     mnemonic: (instruction_mnemonic)
-    operands: (instruction_operands
+    operands: (operands
       (string)))
   (instruction
     mnemonic: (instruction_mnemonic)))

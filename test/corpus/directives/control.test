@@ -20,7 +20,7 @@ _baz:
     mnemonic: (control_mnemonic)
     operands: (directive_operands
       (symbol)))
-  (global_label))
+  (label))
 
 ==========
 [directives/control] control statement with argument followed by numeric label
@@ -34,7 +34,7 @@ _baz:
     mnemonic: (control_mnemonic)
     operands: (directive_operands
       (symbol)))
-  (local_numeric_label))
+  (numeric_label))
 
 ==========
 [directives/control] operands separated by block comment

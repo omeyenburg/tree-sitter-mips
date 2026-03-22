@@ -1,17 +1,9 @@
-((global_label) @indent.begin
-  (#set! indent.immediate 1))
+((label) @indent.begin)
 
-((local_label) @indent.begin
-  (#set! indent.immediate 1))
+((numeric_label) @indent.begin)
 
-((global_numeric_label) @indent.begin
-  (#set! indent.immediate 1))
+((label) @indent.branch
+  (#set! indent.immediate 0))
 
-((local_numeric_label) @indent.begin
-  (#set! indent.immediate 1))
-
-((instruction) @indent.begin
-  (#set! indent.immediate 1))
-
-((directive) @indent.begin
-  (#set! indent.immediate 1))
+((numeric_label) @indent.branch
+  (#set! indent.immediate 0))
